@@ -6,15 +6,34 @@
     <title>Червона нитка</title>
     <link rel="icon" href="./images/favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="./sass/index.scss" />
-    <script type="module" src="./index.js"></script>
   </head>
   <body>
+    <!-- Хедер -->
     <include src="./partials/header.html"></include>
-    <include src="./partials/hero.html"></include>
-    <include src="./partials/special-offer.html"></include>
-    <include src="./partials/all-offers.html"></include>
-    <include src="./partials/advantages.html"></include>
-    <include src="./partials/reviews.html"></include>
+
+    <main>
+      <!-- Секція герой  -->
+      <include src="./partials/hero.html"></include>
+
+      <!-- Акція -->
+      <include src="./partials/special-offer.html"></include>
+
+      <!-- Позиції -->
+      <include src="./partials/all-offers.html"></include>
+
+      <!-- Переваги -->
+      <include src="./partials/advantages.html"></include>
+
+      <!-- Відгуки -->
+      <include src="./partials/reviews.html"></include>
+    </main>
+
+    <!-- Футер -->
     <include src="./partials/footer.html"></include>
+
+    <!-- Навігація в корзину тимчасова -->
+    <a href="./basket.html" style="color: tomato">To basket</a>
+
+    <script type="module" src="./index.js"></script>
   </body>
 </html>
