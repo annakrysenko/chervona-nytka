@@ -1,0 +1,103 @@
+@import "../utils/breakpoints";
+
+.reviews {
+    position: relative;
+    @include max-mobile {
+        padding-top: 24px;
+        padding-bottom: 72px;
+    }
+    @include tablet {
+        padding-top: 83px;
+        padding-bottom: 56px;
+    }
+    @include desktop {
+        padding-top: 44px;
+        padding-bottom: 88px;
+    }
+}
+
+.reviews-title {
+    @include font(400, 42px, 120%, 0.03em);
+
+    @include max-mobile {
+        margin-bottom: 16px;
+    }
+    @include max-tablet {
+        margin-bottom: 24px;
+    }
+    @include desktop {
+        margin-bottom: 46px;
+    }
+}
+
+.swiper-slide {
+    margin: 0;
+}
+.swiper-backdrop {
+    border-radius: 10px;
+    margin: 0 auto;
+    width: 350px;
+    height: 250px;
+    padding: 24px 16px 56px 16px;
+    background-color: $background-card-color;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    color: $primary-text-color;
+    font-family: $secondary-font-style;
+
+    @include font(400, 15px, 120%, 0.03em);
+    @include tablet {
+        margin-right: auto;
+        margin-left: auto;
+
+        @include font(400, 18px, 120%, 0.03em);
+    }
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+    cursor: pointer;
+    position: absolute;
+    bottom: 24;
+    // top: 50%;
+    // right: 50%;
+    // transform: translateY(-50%);
+    z-index: 10;
+    @include tablet {
+        width: 30px;
+        height: 30px;
+        bottom: 146;
+    }
+    @include desktop {
+        width: 40px;
+        height: 40px;
+        bottom: 195;
+    }
+}
+
+.swiper-button-prev {
+    @include max-mobile {
+        left: 115;
+    }
+    @include tablet {
+        left: 40;
+    }
+    @include desktop {
+        left: 150;
+    }
+}
+
+.swiper-button-next {
+    @include max-mobile {
+        right: 115;
+    }
+    @include tablet {
+        right: 40;
+    }
+    @include desktop {
+        right: 150;
+    }
+}
