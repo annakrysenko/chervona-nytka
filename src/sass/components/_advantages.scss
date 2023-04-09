@@ -48,6 +48,9 @@
 
 .advantages__image {
     background-image: url("../images/backgrounds-advantages/advantages-photo@1x-mobile-and-tablet.jpg");
+    @include retina {
+        background-image: url("../images/backgrounds-advantages/advantages-photo@2x-mobile-and-tablet.jpg");
+    }
     background-repeat: no-repeat;
     background-size: cover;
 
@@ -67,6 +70,9 @@
 
     @include desktop {
         background-image: url("../images/backgrounds-advantages/advantages-photo@1x-desctop.jpg");
+        @include retina {
+            background-image: url("../images/backgrounds-advantages/advantages-photo@2x-desctop.jpg");
+        }
         width: 600px;
         height: 900px;
     }
