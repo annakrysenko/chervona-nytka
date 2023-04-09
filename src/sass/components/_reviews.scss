@@ -3,11 +3,11 @@
 .reviews {
     position: relative;
     @include max-mobile {
-        padding-top: 24px;
+        padding-top: 12px;
         padding-bottom: 72px;
     }
     @include tablet {
-        padding-top: 83px;
+        padding-top: 58px;
         padding-bottom: 56px;
     }
     @include desktop {
