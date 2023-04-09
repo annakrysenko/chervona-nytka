@@ -1,0 +1,184 @@
+.advantages {
+    display: flex;
+    flex-direction: column;
+
+    @include max-mobile {
+        padding-top: 12px;
+        padding-bottom: 12px;
+    }
+    @include tablet {
+        padding-top: 28px;
+        padding-bottom: 58px;
+    }
+    @include desktop {
+        padding-top: 44px;
+        padding-bottom: 44px;
+    }
+}
+
+.advantages__title {
+    @include font(400, 42px, 120%, 0.03em);
+
+    @include max-mobile {
+        margin-bottom: 10px;
+    }
+    @include max-tablet {
+        margin-bottom: 16px;
+    }
+    @include desktop {
+        margin-bottom: 46px;
+    }
+}
+
+.advantages-wrapper {
+    display: flex;
+    font-family: $secondary-font-style;
+    @include max-mobile {
+        flex-direction: column-reverse;
+    }
+    @include tablet {
+        flex-direction: row;
+        column-gap: 20px;
+        width: 100%;
+    }
+    @include desktop {
+        column-gap: 90px;
+    }
+}
+
+.advantages__image {
+    background-image: url("../images/backgrounds-advantages/advantages-photo@1x-mobile-and-tablet.jpg");
+    @include retina {
+        background-image: url("../images/backgrounds-advantages/advantages-photo@2x-mobile-and-tablet.jpg");
+    }
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    @include max-mobile {
+        margin-left: -16px;
+        width: 100%;
+        width: 376px;
+        height: 668px;
+
+        background-position-x: right;
+    }
+
+    @include tablet {
+        width: 370px;
+        height: 555px;
+    }
+
+    @include desktop {
+        background-image: url("../images/backgrounds-advantages/advantages-photo@1x-desctop.jpg");
+        @include retina {
+            background-image: url("../images/backgrounds-advantages/advantages-photo@2x-desctop.jpg");
+        }
+        width: 600px;
+        height: 900px;
+    }
+}
+
+.advantages__list {
+    display: flex;
+
+    @include max-mobile {
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding-bottom: 50px;
+    }
+
+    @include tablet {
+        flex-direction: column;
+        justify-content: space-between;
+        width: 360px;
+    }
+
+    @include desktop {
+    }
+}
+
+.advantages__list-item-title {
+    @include max-mobile {
+        @include font(700, 18px, 1.2, 0.03em);
+        margin-bottom: 14px;
+    }
+
+    @include tablet {
+        @include font(700, 20px, 1.2, 0.03em);
+        margin-bottom: 24px;
+    }
+
+    @include desktop {
+        margin-top: 25px;
+    }
+}
+
+.advantages__list-item {
+    background-image: url("../images/backgrounds-advantages/1.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    @include max-mobile {
+        height: 130px;
+        margin: auto 0;
+    }
+    @include tablet {
+        height: 170px;
+        margin: auto 0;
+    }
+
+    @include desktop {
+        justify-content: flex-start;
+        margin: 0;
+    }
+}
+
+.advantages__list-item:nth-child(2) {
+    background-image: url("../images/backgrounds-advantages/2.svg");
+    @include tablet {
+        align-self: flex-end;
+    }
+
+    @include desktop {
+        align-self: flex-start;
+        margin: 0;
+    }
+}
+
+.advantages__list-item:last-child {
+    background-image: url("../images/backgrounds-advantages/3.svg");
+    background-size: 190px 190px;
+    background-position: -20px;
+    @include max-mobile {
+        padding-left: 35px;
+        margin-top: 10px;
+        // height: 160px;
+    }
+    @include tablet {
+        align-self: center;
+    }
+    @include desktop {
+        height: 260px;
+        width: 400px;
+        padding: 40px;
+        align-self: flex-start;
+        margin-bottom: 60px;
+        background-size: 300px 300px;
+    }
+}
+
+.advantages__sublist-item {
+    @include max-mobile {
+        @include font(400, 15px, 1.2, 0.03em);
+        width: 140px;
+    }
+
+    @include tablet {
+        @include font(400, 18px, 1.2, 0.03em);
+    }
+
+    @include desktop {
+    }
+}
