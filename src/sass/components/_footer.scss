@@ -1,0 +1,121 @@
+@import '../utils/breakpoints';
+
+footer {
+  font-family: $secondary-font-style;
+  width: 100%;
+  background-color: $footer-color;
+  color: $primary-text-color;
+  @include max-mobile {
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+  @include tablet {
+    padding-top: 24px;
+    padding-bottom: 8px;
+  }
+  @include desktop {
+    padding-top: 28px;
+    padding-bottom: 24px;
+  }
+}
+
+.footer-wrapper {
+  display: flex;
+  gap: 32px;
+  @include tablet {
+    gap: 112px;
+  }
+  @include desktop {
+    gap: 250px;
+  }
+}
+
+.footer-wrapper-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  @include tablet {
+    flex-direction: row;
+    gap: 130px;
+  }
+  @include desktop {
+    flex-direction: row;
+    gap: 272px;
+  }
+}
+
+.footer-wrapper-low {
+  display: flex;
+  gap: 16px;
+
+  justify-content: center;
+  margin-top: 59px;
+  @include tablet {
+    margin-top: 80px;
+    gap: 20px;
+  }
+  @include desktop {
+    margin-top: 92px;
+    gap: 40px;
+  }
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+  @include tablet {
+    margin-bottom: 24px;
+  }
+}
+
+.logo-icon {
+  width: 23px;
+}
+.logo-name {
+  padding-top: 8px;
+}
+
+.footer-subtitle {
+  @include font(500, 15px, 120%, 0.03em);
+  margin-bottom: 12px;
+}
+
+.footer-txt {
+  @include font(400, 15px, 120%, 0.03em);
+}
+
+.footer-socials-list {
+  display: flex;
+  gap: 32px;
+}
+
+.socials-icon {
+  width: 24px;
+  height: 24px;
+  fill: white;
+}
+
+.footer-txt-small {
+  @include font(400, 11px, 120%, 0.03em);
+}
+
+.footer-link {
+    transition: color 250ms ease-in;
+    &:hover {
+        color: white;
+
+    }
+}
+
+.footer-txt-sign {
+  @include font(400, 11px, 120%, 0.03em);
+  margin-top: -4px;
+  margin-left: -4px;
+  @include tablet {
+    margin-left: -8px;
+  }
+  @include desktop {
+    margin-left: -16px;
+  }
+}
