@@ -1,13 +1,15 @@
-@import "./base/common";
-@import "./base/fonts";
-@import "./base/_hidden";
-@import "./base/container";
+@import './base/common';
+@import './base/fonts';
+@import './base/_hidden';
+@import './base/container';
 
-@import "./utils/breakpoints";
-@import "./utils/variables";
-@import "./utils/mixins";
+@import './utils/breakpoints';
+@import './utils/variables';
+@import './utils/mixins';
 
-@import "./components/reviews";
-@import "./components/footer";
-@import "./components/advantages";
-@import "./components/all-offers";
+@import './components/reviews';
+@import './components/footer';
+@import './components/advantages';
+@import './components/all-offers';
+@import './components/hero';
+@import './components/special-offer';
