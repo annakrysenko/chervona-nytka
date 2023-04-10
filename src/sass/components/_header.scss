@@ -137,6 +137,11 @@
     }
 }
 
+.nav-text:hover,
+.nav-text:active,
+.nav-text.active {
+    color: $hover-header-text-color;
+}
 // ======= basket =======
 .header-btn-basket {
     background-image: url("../images/icons/icon-basket-empty.svg");
