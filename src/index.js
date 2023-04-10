@@ -1,3 +1,3 @@
-import './js/header-menu.js';
+import './js/headerMenu.js';
 import './js/reviews.js';
 import './js/addToBasket.js';
