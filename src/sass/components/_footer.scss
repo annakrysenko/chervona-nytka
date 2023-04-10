@@ -1,4 +1,4 @@
-@import '../utils/breakpoints';
+@import "../utils/breakpoints";
 
 footer {
   font-family: $secondary-font-style;
@@ -22,6 +22,8 @@ footer {
 .footer-wrapper {
   display: flex;
   gap: 32px;
+  position: relative;
+
   @include tablet {
     gap: 112px;
   }
@@ -101,13 +103,13 @@ footer {
 }
 
 .footer-link {
-    transition: color 250ms ease-in;
-    &:hover {
-        color: white;
-        .footer-icon {
-          fill: white;
-        }
+  transition: color 250ms ease-in;
+  &:hover {
+    color: white;
+    .footer-icon {
+      fill: white;
     }
+  }
 }
 
 .footer-txt-sign {
