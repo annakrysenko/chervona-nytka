@@ -38,8 +38,7 @@ const renderMarkupSlider = () => {
       </li>`;
     })
     .join('');
-  console.log(markup);
-  refs.slider.insertAdjacentHTML('beforeend', markup);
+  if (refs.slider) refs.slider.insertAdjacentHTML('beforeend', markup);
 };
 
 renderMarkupSlider();
