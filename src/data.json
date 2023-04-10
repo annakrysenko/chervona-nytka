@@ -1,80 +1,96 @@
 [{
   "id": 1,  
   "name": "Нитка",
-  "price": 25
+  "price": 25,
+  "url" : "./images/threads-for-desktop/thread.png"
 },
 {
   "id": 2,  
   "name": "Нитка з кулоном “Око Фатіми",
-  "price": 49
+  "price": 49,
+  "url" : "./images/threads-for-desktop/thread-2-glaz-fatimy.png"
 },
 {
   "id": 3,  
   "name": "Нитка з кулоном “Ангел”",
-  "price": 49
+  "price": 49,
+  "url" : "./images/threads-for-desktop/thread-3-angel.png"
 },
 {
   "id": 4,  
   "name": "Нитка з кулоном “Дерево Життя”",
-  "price": 49
+  "price": 49,
+  "url" : "./images/threads-for-desktop/thread-4-derevo-zhyttya.png"
 },
 {
   "id": 5,  
   "name": "Нитка з кулоном “Нескінченність”",
-  "price": 49
+  "price": 49,
+  "url" : "./images/threads-for-desktop/thread-5-bezkinechnist.png"
 },
 {
   "id": 6,  
   "name": "Нитка з кулоном “Зірка Давида”",
-  "price": 49
+  "price": 49,
+  "url" : "./images/threads-for-desktop/thread-6-zvezda-davida.png"
 },
 {
   "id": 7,  
   "name": "Нитка з кулоном “Ключ”",
-  "price": 49
+  "price": 49,
+  "url" : "./images/threads-for-desktop/thread-7-klyuch.png"
 },
 {
   "id": 8,  
   "name": "Нитка з кулоном “Чотирилиста конюшина”",
-  "price": 49
+  "price": 49,
+  "url" : "./images/threads-for-desktop/thread-8-chotyrylyst.png"
 },
 {
   "id": 9,  
   "name": "Нитка з кулоном “Перо”",
-  "price": 49
+  "price": 49,
+  "url" : "./images/threads-for-desktop/thread-9-pero.png"
 },
 {
   "id": 10,  
   "name": "Нитка з кулоном “Мушля”",
-  "price": 49
+  "price": 49,
+  "url" : "./images/threads-for-desktop/thread-10-rakushka.png"
 },
 {
   "id": 11,  
   "name": "Нитка з кулоном “Знак Хамсу”",
-  "price": 49
+  "price": 49,
+  "url" : "./images/threads-for-desktop/thread-11-hamsu.png"
 },
 {
   "id": 12,  
   "name": "Нитка з кулоном “Якор”",
-  "price": 49
+  "price": 49,
+  "url" : "./images/threads-for-desktop/thread-12-yakor.png"
 },
 {
   "id": 13,  
   "name": "Підвіска-талісман “Око Фатіми”",
-  "price": 49
+  "price": 49,
+  "url" : "./images/threads-for-desktop/thread-13-poveska-glas-fat.png"
 },
 {
   "id": 14,  
   "name": "Нитка з кулоном “Шпилька”",
-  "price": 49
+  "price": 49,
+  "url" : "./images/threads-for-desktop/thread-14-bulavka.png"
 },
 {
   "id": 15,  
   "name": "Нитка з кулоном “Черепаха”",
-  "price": 49
+  "price": 49,
+  "url" : "./images/threads-for-desktop/thread-15-cherepaha.png"
 },
 {
   "id": 16,  
   "name": "Підвіска-талісман “На кохання”",
-  "price": 49
+  "price": 49,
+  "url" : "./images/threads-for-desktop/thread-16-podveska-lubov.png"
 }]
