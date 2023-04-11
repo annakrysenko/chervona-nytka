@@ -1,6 +1,6 @@
-@import '../utils/breakpoints';
-@import '../utils/mixins';
-@import '../utils/variables';
+@import "../utils/breakpoints";
+@import "../utils/mixins";
+@import "../utils/variables";
 
 .basket-title {
   white-space: nowrap;
@@ -35,6 +35,7 @@
   margin-bottom: 24px;
   @include desktop {
     margin-bottom: 36px;
+    margin-right: 20px;
   }
 }
 
