@@ -4,22 +4,31 @@
 //     "price": 25,
 //     "url" : "./images/threads-for-desktop/thread.png"
 //   },
-
+import * as images from '../images/threads-for-desktop/thread.png'
 import data from '../data.json';
 console.log(data);
 import { refs } from './refs';
+const LS_KEY_ADD_TO = 'Add-to-basket';
+import {getDataFromLockalStorageByKey} from './localStorageService';
+const LSData = getDataFromLockalStorageByKey(LS_KEY_ADD_TO);
+console.log(LSData);
+
+const array2 = [2, 3, 11]; // масив з id
+
+// const checkBasket = LSData.some(obj => array2.includes(obj.id));
 
 const renderMarkupAllOffers = () => {
   const markup = data
     .map(({ id, name, price, url }) => {
-        console.log(url);
+      const isInBasket = array2.includes(id);
+      console.log(isInBasket);
       return `      
       <li class="offers-item js-articleId" id="${id}">
       <div class="offers-item-wrapper">
         <div class="offers-thumb">
           <img
             class="offers-img"
-            src="${url}"
+            src="${images}"
             alt="${name}"
             width="370"
           />
@@ -44,11 +53,12 @@ const renderMarkupAllOffers = () => {
           </button>
         </div>
       </div>
-      <button class="order-btn js-order">Замовити</button>
+      <button class="order-btn js-order">${isInBasket? 'в кошику': 'замовити'}</button>
     </li>`;
     })
     .join('');
-  if (data) refs.offersList.insertAdjacentHTML('beforeend', markup);
+
+    if (refs.offersList) refs.offersList.insertAdjacentHTML('beforeend', markup);
 };
 
 renderMarkupAllOffers();
