@@ -5,4 +5,6 @@ export const refs = {
   headerMenu: document.querySelector('.header-menu'),
   // reviews
   slider: document.querySelector('.swiper-wrapper'),
+  // allOffers
+  offersList: document.querySelector('.offers-list')
 };

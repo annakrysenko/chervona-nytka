@@ -1,7 +1,6 @@
 import {getDataFromLockalStorageByKey, setDataToLocalStorageByKey} from './localStorageService';
 
 const LS_KEY_ADD_TO = 'Add-to-basket';
-const ARTICLE_CLASS_NAME = 'js-article';
 
 const body = document.querySelector('body');
 
