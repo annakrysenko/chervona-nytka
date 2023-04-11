@@ -5,14 +5,12 @@
 //     "url" : "./images/threads-for-desktop/thread.png"
 //   },
 
-import data from '../data.json';
-console.log(data);
+import { data } from '../data';
 import { refs } from './refs';
 
 const renderMarkupAllOffers = () => {
   const markup = data
     .map(({ id, name, price, url }) => {
-        console.log(url);
       return `      
       <li class="offers-item js-articleId" id="${id}">
       <div class="offers-item-wrapper">
