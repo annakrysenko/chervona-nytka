@@ -18,7 +18,7 @@ if (refs.nav)
 
     if (document.location.pathname === '/chervona-nytka/basket.html') {
       localStorage.setItem('scroll', e.target.dataset.section);
-      document.location.pathname = '/chervona-nytka/index.html';
+      document.location.pathname = '/chervona-nytka.git';
     }
 
     elementToScroll = switchForScroll(e.target.dataset.section);
