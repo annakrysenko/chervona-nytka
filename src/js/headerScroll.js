@@ -61,15 +61,7 @@ window.addEventListener('scroll', () => {
     refs.reviewsBtn.classList.remove('active');
   }
 
-  if (
-    // Math.ceil(refs.footerSection.getBoundingClientRect().top) - 1 ===
-    // document.documentElement.offsetHeight - refs.footerSection.offsetHeight
-    document.documentElement.getBoundingClientRect().bottom < 800
-    // document.documentElement.offsetHeight
-
-    // Math.ceil(refs.reviewsSection.getBoundingClientRect().bottom) ===
-    // Math.ceil(refs.footerSection.getBoundingClientRect().top)
-  ) {
+  if (document.documentElement.getBoundingClientRect().bottom < 800) {
     console.log('footerSection ===> ', 'footerSection');
     refs.footerBtn.classList.add('active');
   } else {
@@ -96,9 +88,3 @@ function switchForScroll(name) {
   }
   return el;
 }
-
-// function removeActive() {
-//   refs.navAll.forEach(ref => {
-//     ref.classList.remove('active');
-//   });
-// }

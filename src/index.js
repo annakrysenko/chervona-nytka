@@ -4,3 +4,5 @@ import './js/reviews.js';
 import './js/addToBasket.js';
 import './js/allOffers.js';
 import './js/headerBasketChange.js';
+
+// console.log(document.location.pathname);
