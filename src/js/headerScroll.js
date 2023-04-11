@@ -1,5 +1,7 @@
 import { refs } from './refs';
 
+console.log(document.location.pathname);
+
 let elementToScroll;
 const toScrollLocal = localStorage.getItem('scroll');
 if (toScrollLocal) {
@@ -62,7 +64,6 @@ window.addEventListener('scroll', () => {
   }
 
   if (document.documentElement.getBoundingClientRect().bottom < 800) {
-    console.log('footerSection ===> ', 'footerSection');
     refs.footerBtn.classList.add('active');
   } else {
     refs.footerBtn.classList.remove('active');
