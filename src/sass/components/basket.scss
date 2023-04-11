@@ -1,0 +1,220 @@
+@import '../utils/breakpoints';
+@import '../utils/mixins';
+@import '../utils/variables';
+
+.basket-title {
+  white-space: nowrap;
+  @include font(400, 32px, 120%, 0.03em);
+  margin-bottom: 32px;
+  @include tablet {
+    @include font(400, 42px, 120%, 0.03em);
+    margin-bottom: 48px;
+  }
+  @include desktop {
+    margin-bottom: 56px;
+  }
+}
+.basket-list {
+  display: flex;
+  flex-direction: column;
+}
+.basket-item-wrapper {
+  @include tablet {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-around;
+  }
+}
+.basket-list_item {
+  display: block;
+  border-bottom: 1px solid $background-card-color;
+}
+.basket-item_title-wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  @include desktop {
+    margin-bottom: 36px;
+  }
+}
+
+.basket-item_title {
+  width: 154px;
+  display: flex;
+  flex-wrap: wrap;
+  @include tablet {
+    width: 300px;
+    margin-left: 30px;
+  }
+}
+.basket-subtitle {
+  font-family: $secondary-font-style;
+  @include font(400, 18px, 120%, 0.03em);
+  @include tablet {
+    @include font(400, 22px, 120%, 0.03em);
+  }
+  @include desktop {
+    white-space: nowrap;
+  }
+}
+
+.basket-item-price {
+  font-family: $secondary-font-style;
+  @include font(700, 18px, 120%, 0.03em);
+  @include tablet {
+    @include font(700, 22px, 120%, 0.03em);
+  }
+}
+.basket {
+  @include tablet {
+    margin-left: 60px;
+  }
+}
+.order-value {
+  font-family: $secondary-font-style;
+}
+.basket-item-info {
+  @include tablet {
+    width: 100%;
+  }
+  margin-right: auto;
+}
+
+.basket-item_thumb {
+  width: 300px;
+  height: 300px;
+  background-color: $background-color;
+  border: 1px solid $footer-color;
+  padding: 8px;
+  margin-top: 24px;
+  margin-bottom: 32px;
+  @include tablet {
+    width: 200px;
+    height: 200px;
+    padding: 6px;
+    margin-top: 0px;
+    margin-right: auto;
+  }
+}
+
+.basket-item_img {
+  background-color: $background-card-color;
+  object-fit: cover;
+  width: 100%;
+}
+.basket-link-home {
+  display: block;
+  width: 192px;
+  height: 42px;
+  margin-bottom: 28px;
+  margin-top: 32px;
+  padding: 12px 20px;
+  border: 1px solid $accent-btn-color;
+  border-radius: 10px;
+  white-space: nowrap;
+  color: $accent-btn-color;
+  @include font(400, 15px, 120%, 0.03em);
+  font-family: $secondary-font-style;
+  @include tablet {
+    width: 209px;
+    height: 50px;
+    padding: 16px 29px;
+    margin-bottom: 48px;
+    margin-top: 48px;
+  }
+  @include desktop {
+    width: 255px;
+    height: 54px;
+    padding: 16px 32px;
+    margin-bottom: 56px;
+    margin-top: 56px;
+  }
+
+  &:hover {
+    border: 1px solid $hover-btn-color;
+  }
+}
+
+.basket-total {
+  border-top: 1px solid $background-card-color;
+  border-bottom: 1px solid $background-card-color;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+}
+.basket-total-title {
+  @include font(400, 30px, 120%, 0.03em);
+  margin-top: 32px;
+  margin-bottom: 32px;
+  @include tablet {
+    @include font(400, 42px, 120%, 0.03em);
+    margin-top: 56px;
+    margin-bottom: 56px;
+  }
+}
+.basket-total-price {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @include font(700, 18px, 120%, 0.03em);
+  font-family: $secondary-font-style;
+  padding: 17px 23px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: 1px solid $accent-btn-color;
+  @include tablet {
+    @include font(700, 26px, 120%, 0.03em);
+    padding: 15px 20px;
+    margin-top: 52px;
+    margin-bottom: 52px;
+  }
+}
+.basket-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 19px;
+  width: 300px;
+  background-color: $background-color;
+  @include tablet {
+    width: 450px;
+    padding: 26px 50px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  @include desktop {
+    margin-right: auto;
+  }
+}
+.basket-form_input {
+  min-width: 343px;
+  height: 42px;
+  font-family: $secondary-font-style;
+  color: $input-text-color;
+  &::placeholder {
+    font-family: $secondary-font-style;
+    color: $input-text-color;
+  }
+  @include font(400, 15px, 120%, 0.03em);
+  background-color: #ffffff;
+  outline: none;
+  border: 1px solid #b4b2b2;
+  @include tablet {
+    min-width: 380px;
+    height: 46px;
+  }
+}
+
+.basket-form_btn {
+  display: block;
+  width: 209px;
+  height: 54px;
+  padding: 16px 32px;
+  border-radius: 10px;
+  color: $background-card-color;
+  background-color: $accent-btn-color;
+  border: 1px solid $accent-btn-color;
+  margin-top: 70px;
+}
