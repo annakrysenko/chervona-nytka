@@ -767,7 +767,7 @@ footer {
   font-family: "Roboto", sans-serif;
   width: 100%;
   background-color: #2f7fce;
-  color: #222222;
+  color: #f8fafc;
 }
 @media screen and (max-width: 833.98px) {
   footer {
@@ -855,9 +855,19 @@ footer {
 .logo-icon {
   width: 23px;
 }
+@media screen and (min-width: 1440px) {
+  .logo-icon {
+    width: 32px;
+  }
+}
 
 .logo-name {
   padding-top: 8px;
+}
+@media screen and (min-width: 1440px) {
+  .logo-name {
+    width: 214px;
+  }
 }
 
 .footer-subtitle {
@@ -883,7 +893,7 @@ footer {
 .footer-icon {
   width: 24px;
   height: 24px;
-  transition: fill 250ms ease-in;
+  fill: #f8fafc;
 }
 
 .footer-txt-small {
@@ -895,12 +905,7 @@ footer {
 
 .footer-link {
   transition: color 250ms ease-in;
-}
-.footer-link:hover {
-  color: white;
-}
-.footer-link:hover .footer-icon {
-  fill: white;
+  cursor: pointer;
 }
 
 .footer-txt-sign {
@@ -1018,14 +1023,14 @@ footer {
 }
 @media screen and (min-width: 1440px) {
   .advantages__image {
-    background-image: url("../images/backgrounds-advantages/advantages-photo@1x-desctop.jpg");
+    background-image: url("../images/backgrounds-advantages/advantages-photo@1x-desktop.jpg");
     width: 600px;
     height: 900px;
   }
 }
 @media screen and (min-width: 1440px) and (min-device-pixel-ratio: 2), screen and (min-width: 1440px) and (-webkit-min-device-pixel-ratio: 2), screen and (min-width: 1440px) and (min-resolution: 192dpi), screen and (min-width: 1440px) and (min-resolution: 2dppx) {
   .advantages__image {
-    background-image: url("../images/backgrounds-advantages/advantages-photo@2x-desctop.jpg");
+    background-image: url("../images/backgrounds-advantages/advantages-photo@2x-desktop.jpg");
   }
 }
 
@@ -1158,6 +1163,15 @@ footer {
 }
 .offers {
   font-family: "Roboto", sans-serif;
+}
+
+.offers-title {
+  font-family: "Marck Script", cursive;
+  font-weight: 400;
+  font-size: 42px;
+  line-height: 120%;
+  letter-spacing: 0.03em;
+  color: #222222;
 }
 
 .offers-list {
@@ -1341,6 +1355,8 @@ footer {
 }
 
 .order-increment {
+  width: 30px;
+  height: 32px;
   background-color: #fffcfc;
   border-radius: 0px 2px 2px 0px;
   border: 1px solid #d9d9d9;
@@ -1366,8 +1382,8 @@ footer {
   left: 0;
   width: 100vw;
   height: 100vh;
-  -webkit-backdrop-filter: blur(10px);
-          backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(2px);
+          backdrop-filter: blur(2px);
   opacity: 1;
   overflow-y: hidden;
   visibility: visible;
@@ -1391,20 +1407,66 @@ footer {
   height: 168px;
   background-color: #f8fafc;
   overflow-y: auto;
-  padding-right: 75px;
-  padding-left: 75px;
-  padding-top: 64px;
+  padding-right: 24px;
+  padding-left: 6px;
+  padding-top: 6px;
+  border: 1px solid #6cb0f3;
+  border-radius: 10px;
 }
 @media screen and (min-width: 834px) {
   .modal {
-    width: 734px;
-    height: 656px;
-    padding-right: 28px;
-    padding-left: 0;
-    padding-top: 0;
-    padding-bottom: 8px;
+    width: 600px;
+    height: 248px;
+    padding-right: 75px;
+    padding-left: 75px;
+    padding-top: 64px;
     transform: translate(-50%, -50%);
-    display: flex;
-    flex-wrap: wrap;
+  }
+}
+
+.modal-link-home {
+  display: block;
+  margin-top: 24px;
+  width: 200px;
+  height: 41px;
+  padding: 12px 10px;
+  font-family: "Roboto", sans-serif;
+  white-space: nowrap;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 120%;
+  letter-spacing: 0.03em;
+  color: #f8fafc;
+  border-radius: 10px;
+  background-color: #6cb0f3;
+}
+@media screen and (min-width: 834px) {
+  .modal-link-home {
+    width: 283px;
+    height: 54px;
+    padding: 16px 32px;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 120%;
+    letter-spacing: 0.03em;
+  }
+}
+.modal-link-home:hover {
+  background-color: #81c5ff;
+}
+
+.modal-text {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 120%;
+  letter-spacing: 0.03em;
+}
+@media screen and (min-width: 834px) {
+  .modal-text {
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 120%;
+    letter-spacing: 0.03em;
   }
 }/*# sourceMappingURL=index.css.map */
