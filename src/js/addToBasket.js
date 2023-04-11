@@ -1,3 +1,5 @@
+import {getDataFromLockalStorageByKey, setDataToLocalStorageByKey} from './localStorageService';
+
 const LS_KEY_ADD_TO = 'Add-to-basket';
 const ARTICLE_CLASS_NAME = 'js-article';
 
@@ -6,9 +8,6 @@ const body = document.querySelector('body');
 body.addEventListener('click', handleAddValueBtnClick);
 body.addEventListener('click', handleReduceValueBtnClick);
 body.addEventListener('click', handleOrderBtnClick);
-
-const getDataFromLockalStorageByKey = key => JSON.parse(localStorage.getItem(key));
-const setDataToLocalStorageByKey = (key, dataInitial) => localStorage.setItem(key, JSON.stringify(dataInitial));
 
 function handleAddValueBtnClick(e) {
   const elem = e.target;

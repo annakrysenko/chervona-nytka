@@ -5,7 +5,11 @@
 }
 
 .offers-title{
+  font-family: $primary-font-style;
+  @include font(400, 42px, 120%, 0.03em);
 
+  
+  color: $primary-text-color;;
 }
 
 .offers-list {
