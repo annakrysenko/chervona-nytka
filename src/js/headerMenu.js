@@ -1,8 +1,16 @@
 import { refs } from './refs.js';
 
 (() => {
+  // const burgerEl = document.querySelector('.burger-menu');
+  // console.log(burgerEl);
+
   if (refs.closeMenuBtn) {
-    refs.closeMenuBtn.addEventListener('click', toggleModal);
+    refs.closeMenuBtn.addEventListener('click', e => {
+      e.currentTarget.classList.toggle('burger-menu');
+      e.currentTarget.classList.toggle('burger-menu-open');
+
+      toggleModal();
+    });
   }
 
   if (refs.headerMenu) {
@@ -13,4 +21,3 @@ import { refs } from './refs.js';
     refs.headerMenu.classList.toggle('visually-hidden');
   }
 })();
-// ====
