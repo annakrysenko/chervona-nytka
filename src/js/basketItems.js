@@ -23,7 +23,7 @@ const renderMarkupArticlesInBasket = () => {
       .map(({ id, name, price, url, value }) => {
 
         return ` 
-        <li class="basket-list_item" id="${id}">
+        <li class="basket-list_item js-articleId" id="${id}">
         <div class="basket-item-wrapper">
           <div class="basket-item-info">
             <div class="basket-item_title-wrapper">
@@ -43,7 +43,7 @@ const renderMarkupArticlesInBasket = () => {
               >
                 -
               </button>
-              <div class="order-value" data-action="value">${value}</div>
+              <div class="order-value js-value" data-action="value">${value}</div>
               <button
                 class="order-increment js-add"
                 type="button"
