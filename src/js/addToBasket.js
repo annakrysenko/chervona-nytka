@@ -1,4 +1,4 @@
-import {getDataFromLockalStorageByKey, setDataToLocalStorageByKey} from './localStorageService';
+import {getDataFromLockalStorageByKey, setDataToLocalStorageByKey, checkLS} from './localStorageService';
 
 const LS_KEY_ADD_TO = 'Add-to-basket';
 
@@ -7,6 +7,7 @@ const body = document.querySelector('body');
 body.addEventListener('click', handleAddValueBtnClick);
 body.addEventListener('click', handleReduceValueBtnClick);
 body.addEventListener('click', handleOrderBtnClick);
+// checkLS(LS_KEY_ADD_TO);
 
 function handleAddValueBtnClick(e) {
   const elem = e.target;
@@ -39,9 +40,7 @@ function handleOrderBtnClick(e) {
     const valueElem = orderArticleIdelem.querySelector('.js-value');
     const value = Number(valueElem.textContent);
     if (value === 0) return;
-    const orderDataById = {id, value}
-    console.log(orderDataById);
-    const dataByLs = checkLS();
+    const dataByLs = checkLS(LS_KEY_ADD_TO);
     const check = checkLSById(id);
     if (check) {
         alert('Ця нитка вже додана. Перейдіть в кошик для завершення замовлення.');
@@ -50,13 +49,7 @@ function handleOrderBtnClick(e) {
     }
     setDataToLocalStorageByKey(LS_KEY_ADD_TO, [...dataByLs, ...[{id, value}]]);
     valueElem.textContent = 0;
-}
-
-function checkLS() {
-    let data = getDataFromLockalStorageByKey(LS_KEY_ADD_TO);
-    if (!data) setDataToLocalStorageByKey(LS_KEY_ADD_TO, []);
-    data = getDataFromLockalStorageByKey(LS_KEY_ADD_TO);
-    return data;
+    orderBtn.textContent = "В кошику";
 }
 
 function checkLSById(id) {

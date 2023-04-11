@@ -1,33 +1,26 @@
-// {
-//     "id": 1,
-//     "name": "Нитка",
-//     "price": 25,
-//     "url" : "./images/threads-for-desktop/thread.png"
-//   },
-
 import { data } from '../data';
 import { refs } from './refs';
+
 const LS_KEY_ADD_TO = 'Add-to-basket';
-import {getDataFromLockalStorageByKey} from './localStorageService';
-const LSData = getDataFromLockalStorageByKey(LS_KEY_ADD_TO);
-console.log(LSData);
+import {getDataFromLockalStorageByKey, checkLS} from './localStorageService';
 
-const array2 = [2, 3, 11]; // масив з id
+const LSData = getDataFromLockalStorageByKey(LS_KEY_ADD_TO) || [];
 
-// const checkBasket = LSData.some(obj => array2.includes(obj.id));
+const IDs = LSData.map(data=>Number(data.id));
+console.log(IDs);
+
 
 const renderMarkupAllOffers = () => {
   const markup = data
     .map(({ id, name, price, url }) => {
-      const isInBasket = array2.includes(id);
-      console.log(isInBasket);
+      const isInBasket = IDs.includes(id);
       return `      
       <li class="offers-item js-articleId" id="${id}">
       <div class="offers-item-wrapper">
         <div class="offers-thumb">
           <img
             class="offers-img"
-            src="${images}"
+            src="${url}"
             alt="${name}"
             width="370"
           />
@@ -52,7 +45,7 @@ const renderMarkupAllOffers = () => {
           </button>
         </div>
       </div>
-      <button class="order-btn js-order">${isInBasket? 'в кошику': 'замовити'}</button>
+      <button class="order-btn js-order">${isInBasket?'В кошику':'Замовити'}</button>
     </li>`;
     })
     .join('');

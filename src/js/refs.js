@@ -6,5 +6,7 @@ export const refs = {
   // reviews
   slider: document.querySelector('.swiper-wrapper'),
   // allOffers
-  offersList: document.querySelector('.offers-list')
+  offersList: document.querySelector('.offers-list'),
+  // basket
+  basketListEl: document.querySelector('.basket-list'),
 };
