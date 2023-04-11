@@ -1,1 +1,98 @@
-<p>Basket</p>
+<div class="container basket">
+  <section>
+    <h2 class="basket-title">Оформлення замовлення</h2>
+    <ul class="basket-list">
+      <li class="basket-list_item">
+        <div class="basket-item-wrapper">
+          <div class="basket-item-info">
+            <div class="basket-item_title-wrapper">
+              <div class="basket-item_title">
+                <h3 class="basket-subtitle">
+                  Нитка з кулоном “Нескінченність”
+                </h3>
+              </div>
+
+              <div><p class="basket-item-price">49 грн</p></div>
+            </div>
+            <div class="counter basket" data-action="counter">
+              <button
+                class="order-decrement"
+                type="button"
+                data-action="decrement"
+              >
+                -
+              </button>
+              <div class="order-value" data-action="value">0</div>
+              <button
+                class="order-increment"
+                type="button"
+                data-action="increment"
+              >
+                +
+              </button>
+            </div>
+          </div>
+          <div class="basket-item_thumb">
+            <img
+              class="basket-item_img"
+              src="./images/threads-for-desktop/thread-3-angel.png"
+              alt="Нитка з кулоном “Ангел”"
+              width="280"
+              height="280"
+            />
+          </div>
+        </div>
+      </li>
+    </ul>
+    <a href="./index.html" class="basket-link-home" noopener noreferrer
+      >Продовжити покупки</a
+    >
+    <div class="basket-total">
+      <p class="basket-total-title">До сплати</p>
+      <div class="basket-total-price">247 грн</div>
+    </div>
+    <form class="basket-form">
+      <input
+        class="basket-form_input"
+        type="text"
+        name="name"
+        pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+        placeholder="Ім’я"
+        required
+      />
+
+      <input
+        class="basket-form_input"
+        type="tel"
+        name="number"
+        pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+        placeholder="Номер телефону"
+        required
+      />
+
+      <select name="delivery" class="basket-form_input">
+        <option value disabled selected>Спосіб доставки</option>
+        <option value="novaPochta">Нова Пошта</option>
+        <option value="ukrPochta">Укрпошта</option>
+      </select>
+
+      <input
+        type="text"
+        class="basket-form_input"
+        name="city"
+        placeholder="Місто"
+        required
+      />
+
+      <input
+        class="basket-form_input"
+        type="text"
+        name="department"
+        placeholder="Номер відділення"
+        required
+      />
+
+      <button type="submit" class="basket-form_btn">Замовити нитку</button>
+    </form>
+  </section>
+</div>

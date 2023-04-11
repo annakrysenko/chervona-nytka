@@ -4,7 +4,7 @@ footer {
   font-family: $secondary-font-style;
   width: 100%;
   background-color: $footer-color;
-  color: $primary-text-color;
+  color: $background-color;
   @include max-mobile {
     padding-top: 12px;
     padding-bottom: 12px;
@@ -73,9 +73,16 @@ footer {
 
 .logo-icon {
   width: 23px;
+  @include desktop {
+    width: 32px;
+  }
 }
 .logo-name {
   padding-top: 8px;
+  
+  @include desktop {
+    width: 214px;
+  }
 }
 
 .footer-subtitle {
@@ -95,7 +102,7 @@ footer {
 .footer-icon {
   width: 24px;
   height: 24px;
-  transition: fill 250ms ease-in;
+  fill: $background-color;
 }
 
 .footer-txt-small {
@@ -104,12 +111,7 @@ footer {
 
 .footer-link {
   transition: color 250ms ease-in;
-  &:hover {
-    color: white;
-    .footer-icon {
-      fill: white;
-    }
-  }
+  cursor: pointer;
 }
 
 .footer-txt-sign {

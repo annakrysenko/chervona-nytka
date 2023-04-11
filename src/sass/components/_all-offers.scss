@@ -5,7 +5,11 @@
 }
 
 .offers-title{
+  font-family: $primary-font-style;
+  @include font(400, 42px, 120%, 0.03em);
 
+  
+  color: $primary-text-color;;
 }
 
 .offers-list {
@@ -141,6 +145,7 @@
   display: flex;
   margin: 5px auto;
 }
+
 .order-decrement {
   width: 30px;
   height: 32px;
@@ -151,6 +156,8 @@
   border-radius: 2px 0px 0px 2px;
 }
 .order-increment {
+  width: 30px;
+  height: 32px;
   background-color: #fffcfc;
   border-radius: 0px 2px 2px 0px;
   border: 1px solid #d9d9d9;
