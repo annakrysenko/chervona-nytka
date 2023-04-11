@@ -14,9 +14,9 @@ if (refs.nav)
       return;
     }
 
-    if (document.location.pathname === '/basket.html') {
+    if (document.location.pathname === 'chervona-nytka/basket.html') {
       localStorage.setItem('scroll', e.target.dataset.section);
-      document.location.pathname = '/index.html';
+      document.location.pathname = 'chervona-nytka/index.html';
     }
 
     elementToScroll = switchForScroll(e.target.dataset.section);
