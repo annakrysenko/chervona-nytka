@@ -11,6 +11,7 @@ const body = document.querySelector('body');
 body.addEventListener('click', handleAddValueBtnClick);
 body.addEventListener('click', handleReduceValueBtnClick);
 body.addEventListener('click', handleOrderBtnClick);
+// checkLS(LS_KEY_ADD_TO);
 refs.specials.addEventListener('click', handleSpecialBtnClick);
 
 function handleAddValueBtnClick(e) {
