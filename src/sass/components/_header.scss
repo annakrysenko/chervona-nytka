@@ -126,6 +126,9 @@
 
 .nav-text {
     display: block;
+    background-color: transparent;
+    padding: 0;
+    border: none;
     @include max-mobile {
         width: 164px;
         padding: 16px 0;
@@ -138,7 +141,6 @@
 }
 
 .nav-text:hover,
-.nav-text:active,
 .nav-text.active {
     color: $hover-header-text-color;
 }
@@ -150,10 +152,26 @@
     width: 32px;
     height: 32px;
     display: block;
+    position: relative;
     @include tablet {
         margin-left: auto;
-        width: 30px;
-        height: 30px;
+        width: 20px;
+        height: 20px;
+    }
+}
+
+.header-btn-basket-full {
+    background-image: url("../images/icons/icon-basket-full.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 32px;
+    height: 32px;
+    display: block;
+    position: relative;
+    @include tablet {
+        margin-left: auto;
+        width: 20px;
+        height: 20px;
     }
 }
 
