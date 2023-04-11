@@ -4,9 +4,8 @@
 //     "price": 25,
 //     "url" : "./images/threads-for-desktop/thread.png"
 //   },
-import * as images from '../images/threads-for-desktop/thread.png'
-import data from '../data.json';
-console.log(data);
+
+import { data } from '../data';
 import { refs } from './refs';
 const LS_KEY_ADD_TO = 'Add-to-basket';
 import {getDataFromLockalStorageByKey} from './localStorageService';
