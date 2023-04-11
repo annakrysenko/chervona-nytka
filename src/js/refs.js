@@ -9,4 +9,6 @@ export const refs = {
   offersList: document.querySelector('.offers-list'),
   // basket
   basketListEl: document.querySelector('.basket-list'),
+  // special
+  specials: document.querySelector('.js-special'),
 };
