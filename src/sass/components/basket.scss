@@ -207,6 +207,12 @@
   }
 }
 
+.select-basket {
+  font-family: $secondary-font-style;
+  color: $input-text-color;
+  @include font(400, 15px, 120%, 0.03em);
+}
+
 .basket-form_btn {
   display: block;
   width: 209px;
