@@ -1,9 +1,7 @@
 import { data } from '../data';
 import { refs } from './refs';
-
 const LS_KEY_ADD_TO = 'Add-to-basket';
 import { getDataFromLockalStorageByKey } from './localStorageService';
-
 const LSData = getDataFromLockalStorageByKey(LS_KEY_ADD_TO) || [];
 
 export const fullDataInBasket = data.reduce((acc, obj1) => {
@@ -20,7 +18,7 @@ export const renderMarkupArticlesInBasket = fullDataInBasket => {
   const markup = fullDataInBasket
     .map(({ id, name, price, url, value }) => {
       const priceItem = value * Number(price);
-      return ` 
+      return `
         <li class="basket-list_item js-articleId" id="${id}">
         <div class="basket-item-wrapper">
           <div class="basket-item-info">
@@ -30,7 +28,6 @@ export const renderMarkupArticlesInBasket = fullDataInBasket => {
                   ${name}
                 </h3>
               </div>
-
               <div><p class="basket-item-price" data-price="${price}">${priceItem} </p><span class="valute">грн</span></div>
               <button type="button" class="basket-delete-btn" id="${id}">X </button>
             </div>
