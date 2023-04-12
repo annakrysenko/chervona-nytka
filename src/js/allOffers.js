@@ -33,7 +33,7 @@ const renderMarkupAllOffers = () => {
             type="button"
             data-action="decrement"
           >
-            ${id === 1? "-5": "-1"}
+            ${id === 1? "&#8722;": "-1"}
           </button>
           <div class="order-value js-value" data-action="value">${isInBasket? checkValueInLSById(LS_KEY_ADD_TO, id) : 0 }</div>
           <button
@@ -42,7 +42,7 @@ const renderMarkupAllOffers = () => {
             type="button"
             data-action="increment"
           >
-          ${id === 1? "+5": "+1"}
+          ${id === 1? "&#43;": "+1"}
           </button>
         </div>
       </div>
