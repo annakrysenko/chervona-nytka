@@ -1,14 +1,17 @@
 import { refs } from './refs';
 
-console.log(document.location.pathname);
+window.addEventListener('load', () => {
+  const toScrollLocal = localStorage.getItem('scroll');
+  if (
+    (toScrollLocal && document.location.pathname === '/index.html') ||
+    document.location.pathname === '/'
+  ) {
+    const elementToScroll = switchForScroll(toScrollLocal);
 
-let elementToScroll;
-const toScrollLocal = localStorage.getItem('scroll');
-if (toScrollLocal) {
-  elementToScroll = switchForScroll(toScrollLocal);
-  scrollTo(elementToScroll.offsetTop);
-  localStorage.clear('scroll', '');
-}
+    scrollTo(elementToScroll.offsetTop);
+    localStorage.clear('scroll', '');
+  }
+});
 
 if (refs.nav)
   refs.nav.addEventListener('click', e => {
@@ -16,16 +19,21 @@ if (refs.nav)
       return;
     }
 
-    if (document.location.pathname === '/chervona-nytka/basket.html') {
+    if (document.location.pathname === '/basket.html') {
       localStorage.setItem('scroll', e.target.dataset.section);
-      document.location.pathname = '/chervona-nytka/index.html';
+      document.location.pathname = '/index.html';
     }
-
-    elementToScroll = switchForScroll(e.target.dataset.section);
-    scrollTo(elementToScroll.offsetTop);
+    if (
+      document.location.pathname === '/index.html' ||
+      document.location.pathname === '/'
+    ) {
+      const elementToScrollIndex = switchForScroll(e.target.dataset.section);
+      scrollTo(elementToScrollIndex.offsetTop);
+    }
   });
 
 function scrollTo(el) {
+  // console.log('el=====>', el);
   window.scrollTo({
     left: 0,
     top: el - 108,
@@ -34,7 +42,6 @@ function scrollTo(el) {
 }
 
 window.addEventListener('scroll', () => {
-  console.log();
   if (
     refs.allOffersSection.getBoundingClientRect().top < 138 &&
     refs.allOffersSection.getBoundingClientRect().bottom > 139
@@ -72,20 +79,14 @@ window.addEventListener('scroll', () => {
 
 function switchForScroll(name) {
   let el;
-  switch (name) {
-    case 'allOffersSection':
-      el = refs.allOffersSection;
-
-      break;
-    case 'advantagesSection':
-      el = refs.advantagesSection;
-      break;
-    case 'reviewsSection':
-      el = refs.reviewsSection;
-      break;
-    case 'footerSection':
-      el = refs.footerSection;
-      break;
+  if (name === 'allOffersSection') {
+    el = refs.allOffersSection;
+  } else if (name === 'advantagesSection') {
+    el = refs.advantagesSection;
+  } else if (name === 'reviewsSection') {
+    el = refs.reviewsSection;
+  } else if (name === 'footerSection') {
+    el = refs.footerSection;
   }
   return el;
 }
