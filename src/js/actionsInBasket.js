@@ -12,10 +12,12 @@ const LSData = getDataFromLockalStorageByKey(LS_KEY_ADD_TO) ?? [];
 console.log(LSData);
 
 const body = document.querySelector('body');
+const form = document.querySelector('form');
+const submitBtn = document.querySelector('.basket-form_btn');
 body.addEventListener('click', handleAddValueBtnClick);
 body.addEventListener('click', handleReduceValueBtnClick);
-
 body.addEventListener('click', handleRemoveEl);
+submitBtn.addEventListener('click', handleSubmitForm);
 
 function handleRemoveEl(e) {
   // console.log(elem);
@@ -110,12 +112,15 @@ function uppDateTotalPrice() {
 }
 
 uppDateTotalPrice();
+
 function removeLS() {
   removeItem(LS_KEY_ADD_TO);
 }
 
 function handleSubmitForm(e) {
   e.preventDefault();
+  let formData = new FormData(form);
+
   removeLS();
   handleCloseModal();
 }
