@@ -1,11 +1,8 @@
 import { data } from '../data';
 import { refs } from './refs';
-
 const LS_KEY_ADD_TO = 'Add-to-basket';
 import { getDataFromLockalStorageByKey } from './localStorageService';
-
 const LSData = getDataFromLockalStorageByKey(LS_KEY_ADD_TO) || [];
-
 const fullDataInBasket = data.reduce((acc, obj1) => {
   // Якщо в data є об'єкти з такими самими id як в об'єктах з LSData, то знаходимо та вибираємо ці об'єкти:
   const obj2 = LSData.find(obj2 => Number(obj2.id) === obj1.id);
@@ -15,12 +12,11 @@ const fullDataInBasket = data.reduce((acc, obj1) => {
   }
   return acc;
 }, []);
-
-const renderMarkupArticlesInBasket = () => {
-  const markup = fullDataInBasket
+export const renderMarkupArticlesInBasket = (dataInBasket) => {
+  const markup = dataInBasket
     .map(({ id, name, price, url, value }) => {
       const priceItem = value * Number(price);
-      return ` 
+      return `
         <li class="basket-list_item js-articleId" id="${id}">
         <div class="basket-item-wrapper">
           <div class="basket-item-info">
@@ -30,7 +26,6 @@ const renderMarkupArticlesInBasket = () => {
                   ${name}
                 </h3>
               </div>
-
               <div><p class="basket-item-price" data-price="${price}">${priceItem} </p><span class="valute">грн</span></div>
               <button type="button" class="basket-delete-btn" id="${id}">X </button>
             </div>
@@ -66,9 +61,7 @@ const renderMarkupArticlesInBasket = () => {
         `;
     })
     .join('');
-
   if (refs.basketListEl)
-    refs.basketListEl.insertAdjacentHTML('beforeend', markup);
+    refs.basketListEl.innerHTML =  markup;
 };
-
-renderMarkupArticlesInBasket();
+renderMarkupArticlesInBasket(fullDataInBasket);
