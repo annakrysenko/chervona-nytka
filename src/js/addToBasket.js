@@ -101,7 +101,7 @@ function handleReduceSpecialBtnClick(e) {
 
   let valueOutput = orderArticleElem.querySelector('.js-value');
   let value = Number(valueOutput.textContent);
-  value = value <= 0 ? 0 : value - 5;
+  value = value <= 1 ? 0 : value === 5 ? 1 : value - 5;
   valueOutput.textContent = value;
   return;
 }
@@ -112,7 +112,7 @@ function handleAddSpecialBtnClick(e) {
 
   let valueOutput = orderArticleElem.querySelector('.js-value');
   let value = Number(valueOutput.textContent);
-  value += 5;
+  value = value === 0 ? value = 1 : value === 1 ? value +=4 : value += 5;
   valueOutput.textContent = value;
   return;
 }
