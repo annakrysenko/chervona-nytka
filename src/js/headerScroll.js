@@ -3,7 +3,7 @@ import { refs } from './refs';
 window.addEventListener('load', () => {
   const toScrollLocal = localStorage.getItem('scroll');
   if (
-    (toScrollLocal && document.location.pathname === '/index.html') ||
+    (toScrollLocal && document.location.pathname === '/chervona-nytka/index.html') ||
     document.location.pathname === '/'
   ) {
     const elementToScroll = switchForScroll(toScrollLocal);
@@ -19,13 +19,13 @@ if (refs.nav)
       return;
     }
 
-    if (document.location.pathname === '/basket.html') {
+    if (document.location.pathname === '/chervona-nytka/basket.html') {
       localStorage.setItem('scroll', e.target.dataset.section);
-      document.location.pathname = '/index.html';
+      document.location.pathname = '/chervona-nytka/index.html';
     }
     if (
-      document.location.pathname === '/index.html' ||
-      document.location.pathname === '/'
+      document.location.pathname === '/chervona-nytka/index.html' ||
+      document.location.pathname === '/chervona-nytka/'
     ) {
       const elementToScrollIndex = switchForScroll(e.target.dataset.section);
       scrollTo(elementToScrollIndex.offsetTop);
