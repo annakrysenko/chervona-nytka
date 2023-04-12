@@ -1,53 +1,19 @@
-import { handleCloseModal } from './modal-open-close';
+const LS_KEY_ADD_TO = 'Add-to-basket';
+import { getDataFromLockalStorageByKey } from './localStorageService';
 
-const basketList = document.querySelector(`.basket-list`);
+const LSData = getDataFromLockalStorageByKey(LS_KEY_ADD_TO) || [];
 
-const renderBasket = data => {
-  const basketItem = data
-    .map(({ id, name, price, url, value }) => {
-      return ` <li class="basket-list_item" id=${id}>
-        <div class="basket-item-wrapper">
-          <div class="basket-item-info">
-            <div class="basket-item_title-wrapper">
-              <div class="basket-item_title">
-                <h3 class="basket-subtitle">
-                  ${name}
-                </h3>
-              </div>
+const basket = document.querySelector('.basket');
+const basketSection = document.querySelector('.js-basket-section');
 
-              <div><p class="basket-item-price">${price} грн</p></div>
-            </div>
-            <div class="counter basket" data-action="counter">
-              <button
-                class="order-decrement"
-                type="button"
-                data-action="decrement"
-              >
-                -
-              </button>
-              <div class="order-value" data-action="value">${value}</div>
-              <button
-                class="order-increment"
-                type="button"
-                data-action="increment"
-              >
-                +
-              </button>
-            </div>
-          </div>
-          <div class="basket-item_thumb">
-            <img
-              class="basket-item_img"
-              src=${url}
-              alt="Нитка з кулоном “Ангел”"
-              width="280"
-              height="280"
-            />
-          </div>
-        </div>
-      </li>`;
-    })
-    .join('');
-
-  return basketItem;
-};
+export function auditBasket(LSData) {
+  const basketEmpty = `<section class="basket-empty"><div class="basket-empty-text-wrapper"><p class="basket-empty-title">Кошик порожній</p><p class="basket-empty-text">Але це ніколи  не пізно виправити :)</p></div>
+   <a href="./index.html" class="basket-link-home" noopener noreferrer
+      >Продовжити покупки</a
+    ></section>`;
+  if (LSData.length === 0) {
+    basketSection.style.display = 'none';
+    basket.innerHTML = basketEmpty;
+  }
+}
+auditBasket(LSData);
