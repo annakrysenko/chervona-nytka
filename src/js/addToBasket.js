@@ -55,7 +55,7 @@ function handleOrderBtnClick(e) {
   orderBtn.textContent = "В кошику";
   addBtn.setAttribute('disabled', 'disabled');
   reduceBtn.setAttribute('disabled', 'disabled');
-  // refs.basketBtn.classList.add('header-btn-basket');
+  refs.basketBtn.classList.add('header-btn-basket-full');
 }
 
 function handleSpecialBtnClick() {

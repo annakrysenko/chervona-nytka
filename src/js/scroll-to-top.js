@@ -1,7 +1,7 @@
 // Get the element
 let topBtn = document.querySelector('.page-up');
 
-// On Click, Scroll to the page's top, replace 'smooth' with 'auto' if you don't want smooth scrolling
+// On Click, Scroll to the page's top, with behavior: 'smooth'
 topBtn.onclick = () => {
   window.scroll({ top: 0, behavior: 'smooth' });
 };
