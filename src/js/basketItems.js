@@ -6,7 +6,7 @@ import { getDataFromLockalStorageByKey } from './localStorageService';
 
 const LSData = getDataFromLockalStorageByKey(LS_KEY_ADD_TO) || [];
 
-const fullDataInBasket = data.reduce((acc, obj1) => {
+export const fullDataInBasket = data.reduce((acc, obj1) => {
   // Якщо в data є об'єкти з такими самими id як в об'єктах з LSData, то знаходимо та вибираємо ці об'єкти:
   const obj2 = LSData.find(obj2 => Number(obj2.id) === obj1.id);
   if (obj2) {
@@ -16,7 +16,7 @@ const fullDataInBasket = data.reduce((acc, obj1) => {
   return acc;
 }, []);
 
-const renderMarkupArticlesInBasket = () => {
+export const renderMarkupArticlesInBasket = fullDataInBasket => {
   const markup = fullDataInBasket
     .map(({ id, name, price, url, value }) => {
       const priceItem = value * Number(price);
@@ -67,8 +67,7 @@ const renderMarkupArticlesInBasket = () => {
     })
     .join('');
 
-  if (refs.basketListEl)
-    refs.basketListEl.insertAdjacentHTML('beforeend', markup);
+  if (refs.basketListEl) refs.basketListEl.innerHTML = markup;
 };
 
-renderMarkupArticlesInBasket();
+renderMarkupArticlesInBasket(fullDataInBasket);
