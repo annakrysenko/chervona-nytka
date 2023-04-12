@@ -1,4 +1,5 @@
 const LS_KEY_ADD_TO = 'Add-to-basket';
+import { data } from '../data';
 import { renderMarkupArticlesInBasket } from './basketItems';
 import {
   getDataFromLockalStorageByKey,
@@ -20,25 +21,32 @@ body.addEventListener('click', handleRemoveEl);
 submitBtn.addEventListener('click', handleSubmitForm);
 
 function handleRemoveEl(e) {
-  // console.log(elem);
-  // const orderArticleIdelem = elem.closest('.js-articleId');
-
   const el = e.target.closest('.basket-delete-btn');
   if (!el) return;
-  // const idCard = orderArticleIdelem.id;
-  const idCard = e.target.id;
-  console.log(idCard);
-  const newLSData = LSData.filter(el => {
-    console.log(el.id);
 
+  const idCard = e.target.id;
+
+  const newLSData = LSData.filter(el => {
     return el.id !== idCard;
   });
-  console.log(newLSData);
+
   if (newLSData.length === 0) {
     auditBasket(newLSData);
     return;
   }
   setDataToLocalStorageByKey(LS_KEY_ADD_TO, newLSData);
+  // const newF = getDataFromLockalStorageByKey(LS_KEY_ADD_TO);
+
+  // const uppdateData = data.reduce((acc, obj1) => {
+  //   // Якщо в data є об'єкти з такими самими id як в об'єктах з LSData, то знаходимо та вибираємо ці об'єкти:
+  //   const obj2 = newF.find(obj2 => Number(obj2.id) === obj1.id);
+  //   if (obj2) {
+  //     // Якщо знайдено відповідний об'єкт в LSData, то додаємо поле value до obj1
+  //     acc.push({ ...obj1, value: obj2.value });
+  //   }
+  //   return acc;
+  // }, []);
+  // renderMarkupArticlesInBasket(uppdateData);
 
   location.reload();
   return;
@@ -122,5 +130,5 @@ function handleSubmitForm(e) {
   let formData = new FormData(form);
 
   removeLS();
-  handleCloseModal();
+  // handleCloseModal();
 }
