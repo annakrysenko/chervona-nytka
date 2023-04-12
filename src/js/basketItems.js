@@ -19,6 +19,7 @@ const fullDataInBasket = data.reduce((acc, obj1) => {
 const renderMarkupArticlesInBasket = () => {
   const markup = fullDataInBasket
     .map(({ id, name, price, url, value }) => {
+      const priceItem = value * Number(price);
       return ` 
         <li class="basket-list_item js-articleId" id="${id}">
         <div class="basket-item-wrapper">
@@ -30,7 +31,8 @@ const renderMarkupArticlesInBasket = () => {
                 </h3>
               </div>
 
-              <div><p class="basket-item-price">${price} грн</p></div>
+              <div><p class="basket-item-price" data-price="${price}">${priceItem} </p><span class="valute">грн</span></div>
+              <button type="button" class="basket-delete-btn" id="${id}">X </button>
             </div>
             <div class="counter basket" data-action="counter">
               <button
