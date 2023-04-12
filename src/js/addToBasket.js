@@ -8,8 +8,9 @@ const body = document.querySelector('body');
 body.addEventListener('click', handleAddValueBtnClick);
 body.addEventListener('click', handleReduceValueBtnClick);
 body.addEventListener('click', handleOrderBtnClick);
-
-refs.specials.addEventListener('click', handleSpecialBtnClick);
+// checkLS(LS_KEY_ADD_TO);
+if (refs.specials)
+  refs.specials.addEventListener('click', handleSpecialBtnClick);
 
 function handleAddValueBtnClick(e) {
   const elem = e.target;

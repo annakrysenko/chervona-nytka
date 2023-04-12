@@ -6,9 +6,6 @@ import { refs } from './refs.js';
 
   if (refs.closeMenuBtn) {
     refs.closeMenuBtn.addEventListener('click', e => {
-      e.currentTarget.classList.toggle('burger-menu');
-      e.currentTarget.classList.toggle('burger-menu-open');
-
       toggleModal();
     });
   }
@@ -19,5 +16,7 @@ import { refs } from './refs.js';
 
   function toggleModal() {
     refs.headerMenu.classList.toggle('visually-hidden');
+    refs.burgerEl.classList.toggle('burger-menu');
+    refs.burgerEl.classList.toggle('burger-menu-open');
   }
 })();
