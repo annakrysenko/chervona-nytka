@@ -62,7 +62,7 @@ function handleSpecialBtnClick() {
   const dataByLs = checkLS(LS_KEY_ADD_TO);
   const check = checkLSById(1);
   if (check) {
-    alert('Ця нитка вже додана. Перейдіть в кошик для завершення замовлення.');
+    // alert('Ця нитка вже додана. Перейдіть в кошик для завершення замовлення.');
     return;
   }
   setDataToLocalStorageByKey(LS_KEY_ADD_TO, [
