@@ -6,3 +6,8 @@ export const checkLS = (key) => {
     data = getDataFromLockalStorageByKey(key);
     return data;
 }
+export const checkValueInLSById = (key, id) => {
+    let data = getDataFromLockalStorageByKey(key);
+    const valueInLS = data.reduce((acc, el) => {if (Number(el.id) === id);  acc = el.value; return acc}, 0);
+    return valueInLS;
+}

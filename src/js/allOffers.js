@@ -2,13 +2,12 @@ import { data } from '../data';
 import { refs } from './refs';
 
 const LS_KEY_ADD_TO = 'Add-to-basket';
-import {getDataFromLockalStorageByKey, checkLS} from './localStorageService';
+import {getDataFromLockalStorageByKey, checkValueInLSById} from './localStorageService';
+
 
 const LSData = getDataFromLockalStorageByKey(LS_KEY_ADD_TO) || [];
 
 const IDs = LSData.map(data=>Number(data.id));
-console.log(IDs);
-
 
 const renderMarkupAllOffers = () => {
   const markup = data
@@ -29,23 +28,25 @@ const renderMarkupAllOffers = () => {
         <p class="offers-text">${price}</p>
         <div class="counter" data-action="counter">
           <button
-            class="order-decrement js-reduce"
+          ${isInBasket? 'disabled' :''}
+            class="order-decrement ${id === 1? "js-reduce-special": "js-reduce"}"
             type="button"
             data-action="decrement"
           >
-            -1
+            ${id === 1? "-5": "-1"}
           </button>
-          <div class="order-value js-value" data-action="value">0</div>
+          <div class="order-value js-value" data-action="value">${isInBasket? checkValueInLSById(LS_KEY_ADD_TO, id) : 0 }</div>
           <button
-            class="order-increment js-add"
+          ${isInBasket? 'disabled' :''}
+            class="order-increment ${id === 1? "js-add-special": "js-add"}"
             type="button"
             data-action="increment"
           >
-            +1
+          ${id === 1? "+5": "+1"}
           </button>
         </div>
       </div>
-      <button class="order-btn js-order">${isInBasket?'В кошику':'Замовити'}</button>
+      <button class="order-btn ${id === 1? "js-order-special": "js-order"}">${isInBasket?'В кошику':'Замовити'}</button>
     </li>`;
     })
     .join('');
