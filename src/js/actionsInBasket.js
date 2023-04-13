@@ -17,7 +17,7 @@ const submitBtn = document.querySelector('.basket-form_btn');
 body.addEventListener('click', handleAddValueBtnClick);
 body.addEventListener('click', handleReduceValueBtnClick);
 body.addEventListener('click', handleRemoveEl);
-// submitBtn.addEventListener('click', handleSubmitForm);
+
 function handleRemoveEl(e) {
   const elem = e.target;
   const article = elem.closest('.js-articleId');
@@ -29,6 +29,7 @@ function handleRemoveEl(e) {
   setDataToLocalStorageByKey(LS_KEY_ADD_TO, newLSData);
   location.reload();
 }
+
 function handleAddValueBtnClick(e) {
   const elem = e.target;
   const orderArticleIdelem = elem.closest('.js-articleId');
@@ -45,6 +46,7 @@ function handleAddValueBtnClick(e) {
   updateLSData(e);
   return;
 }
+
 function handleReduceValueBtnClick(e) {
   const elem = e.target;
   const orderArticleIdelem = elem.closest('.js-articleId');
@@ -61,6 +63,7 @@ function handleReduceValueBtnClick(e) {
   updateLSData(e);
   return;
 }
+
 function updateLSData(e) {
   const elem = e.target;
   const orderArticleIdelem = elem.closest('.js-articleId');
@@ -76,6 +79,7 @@ function updateLSData(e) {
   setDataToLocalStorageByKey(LS_KEY_ADD_TO, newLSData);
   return;
 }
+
 function uppDateTotalPrice() {
   const totalPrice = document.querySelector('.basket-total-price');
   const priceItems = document.querySelectorAll('.basket-item-price');
@@ -87,14 +91,5 @@ function uppDateTotalPrice() {
     totalPrice.innerHTML = totalValuePrice;
   }
 }
+
 uppDateTotalPrice();
-function removeLS() {
-  removeItem(LS_KEY_ADD_TO);
-}
-function handleSubmitForm(e) {
-  e.preventDefault();
-  let formData = new FormData(form);
-  removeLS();
-  handleCloseModal();
-}
-// handleCloseModal();
