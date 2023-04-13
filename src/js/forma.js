@@ -18,8 +18,8 @@ const fullDataInBasket = data =>
   }, []);
 const dataFromLS = fullDataInBasket(data);
 
-formEl.addEventListener('submit', handleSubmit);
-formEl.addEventListener('change', handleChangeForm);
+if (formEl) formEl.addEventListener('submit', handleSubmit);
+if (formEl) formEl.addEventListener('change', handleChangeForm);
 
 initForm();
 
