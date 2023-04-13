@@ -1,28 +1,22 @@
-import { data } from '../data';
-import { refs } from './refs';
 const LS_KEY_ADD_TO = 'Add-to-basket';
-import { data } from '../data';
-import { renderMarkupArticlesInBasket } from './basketItems';
 import {
   getDataFromLockalStorageByKey,
   setDataToLocalStorageByKey,
 } from './localStorageService';
 import { auditBasket } from './markupBasket';
-import { handleCloseModal } from './modal-open-close';
+
 
 const LSData = getDataFromLockalStorageByKey(LS_KEY_ADD_TO) ?? [];
 const body = document.querySelector('body');
-const form = document.querySelector('form');
-const submitBtn = document.querySelector('.basket-form_btn');
+
 body.addEventListener('click', handleAddValueBtnClick);
 body.addEventListener('click', handleReduceValueBtnClick);
 body.addEventListener('click', handleRemoveEl);
 
 function handleRemoveEl(e) {
   const elem = e.target;
+  if (!elem.classList.contains('basket-delete-btn')) return;
   const article = elem.closest('.js-articleId');
-  const removeBtn = article.querySelector('.basket-delete-btn');
-  if (elem !== removeBtn) return;
   const idCard = article.id;
   const newLSData = LSData.filter(el => Number(el.id) !== Number(idCard));
   if (newLSData.length === 0) auditBasket(newLSData);
@@ -32,11 +26,10 @@ function handleRemoveEl(e) {
 
 function handleAddValueBtnClick(e) {
   const elem = e.target;
+  if (!elem.classList.contains('js-add')) return;
   const orderArticleIdelem = elem.closest('.js-articleId');
-  const addBtn = orderArticleIdelem.querySelector('.js-add');
   const priceItem = orderArticleIdelem.querySelector('.basket-item-price');
   const price = Number(priceItem.dataset.price);
-  if (elem !== addBtn) return;
   let valueOutput = elem.previousElementSibling;
   let value = Number(valueOutput.textContent);
   value += 1;
@@ -49,11 +42,10 @@ function handleAddValueBtnClick(e) {
 
 function handleReduceValueBtnClick(e) {
   const elem = e.target;
+  if (!elem.classList.contains('js-reduce'))  return;
   const orderArticleIdelem = elem.closest('.js-articleId');
-  const reduceBtn = elem.closest('.js-reduce');
   const priceItem = orderArticleIdelem.querySelector('.basket-item-price');
   const price = Number(priceItem.dataset.price);
-  if (elem !== reduceBtn) return;
   let valueOutput = elem.nextElementSibling;
   let value = Number(valueOutput.textContent);
   value = value <= 1 ? 1 : value - 1;
@@ -90,6 +82,41 @@ function uppDateTotalPrice() {
   if (totalPrice) {
     totalPrice.innerHTML = totalValuePrice;
   }
+}
+
+const specialReduceBtn = document.querySelector('.js-reduce-special');
+const specialAddeBtn = document.querySelector('.js-add-special');
+if (specialReduceBtn) specialReduceBtn.addEventListener('click', handleReduceSpecialBtnClick);
+if (specialAddeBtn) specialAddeBtn.addEventListener('click', handleAddSpecialBtnClick);
+
+function handleReduceSpecialBtnClick(e) {
+  const elem = e.target;
+  const orderArticleElem = elem.closest('.js-articleId');
+  const priceItem = orderArticleElem.querySelector('.basket-item-price');
+  const price = Number(priceItem.dataset.price);
+  let valueOutput = orderArticleElem.querySelector('.js-value');
+  let value = Number(valueOutput.textContent);
+  value = value <= 1 ? 1 : value === 5 ? 1 : value - 5;
+  valueOutput.textContent = value;
+  priceItem.textContent = value * price;
+  uppDateTotalPrice();
+  updateLSData(e);
+  return;
+}
+
+function handleAddSpecialBtnClick(e) {
+  const elem = e.target;
+  const orderArticleElem = elem.closest('.js-articleId');
+  const priceItem = orderArticleElem.querySelector('.basket-item-price');
+  const price = Number(priceItem.dataset.price);
+  let valueOutput = orderArticleElem.querySelector('.js-value');
+  let value = Number(valueOutput.textContent);
+  value = value <1 ? (value = 1) : value === 1 ? (value += 4) : (value += 5);
+  valueOutput.textContent = value;
+  priceItem.textContent = value * price;
+  uppDateTotalPrice();
+  updateLSData(e);
+  return;
 }
 
 uppDateTotalPrice();

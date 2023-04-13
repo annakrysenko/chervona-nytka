@@ -2,7 +2,7 @@ import { data } from '../data';
 import { getDataFromLockalStorageByKey } from './localStorageService';
 const LS_KEY = 'selectedvalue';
 
-const form = document.querySelector('.basket-form');
+const formEl = document.querySelector('.basket-form');
 
 const LS_KEY_ADD_TO = 'Add-to-basket';
 const LSData = getDataFromLockalStorageByKey(LS_KEY_ADD_TO) || [];
@@ -17,17 +17,21 @@ const fullDataInBasket = data =>
     return acc;
   }, []);
 const dataFromLS = fullDataInBasket(data);
-console.log(...dataFromLS);
 
-form.addEventListener('submit', handleSubmit);
-form.addEventListener('change', handleChangeForm);
+formEl.addEventListener('submit', handleSubmit);
+formEl.addEventListener('change', handleChangeForm);
 
 initForm();
 
 async function handleSubmit(e) {
   e.preventDefault();
-  const formData = new FormData(form);
-  formData.append('order', ...dataFromLS);
+  const formData = new FormData(formEl);
+
+  const data = JSON.stringify(dataFromLS);
+  console.log(data);
+  const blob = new Blob([data], { type: "text/plain" });
+
+  formData.append('order', blob);
   let response = await fetch('sendmail.php', {
     method: 'POST',
     body: 'formData',
@@ -38,7 +42,8 @@ async function handleSubmit(e) {
     alert(result.message);
     removeLS();
     handleCloseModal();
-    form.reset();
+    formEl.reset();
+    localStorage.removeItem(LS_KEY);
     //classList.remove("ksjdxnj")
   } else {
     alert('error');
@@ -46,7 +51,6 @@ async function handleSubmit(e) {
   }
   // console.log(formData);
   // formData.forEach((value, name)=> console.log(value, name));
-  localStorage.removeItem(LS_KEY);
 }
 
 function handleChangeForm(e) {
@@ -61,7 +65,7 @@ function initForm() {
   if (persistedFilters) {
     persistedFilters = JSON.parse(persistedFilters);
     Object.entries(persistedFilters).forEach(([name, value]) => {
-      form.elements[name].value = value;
+      formEl.elements[name] ? formEl.elements[name].value = value: '';
     });
   }
 }

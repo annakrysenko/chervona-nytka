@@ -28,24 +28,24 @@ export const renderMarkupArticlesInBasket = fullDataInBasket => {
                   ${name}
                 </h3>
               </div>
-              <div><p class="basket-item-price" data-price="${price}">${priceItem} </p><span class="valute">грн</span></div>
-              <button type="button" class="basket-delete-btn" id="${id}">X </button>
+              <div class="basket-item-price-wrapper"><p class="basket-item-price" data-price="${price}">${priceItem} </p><span class="valute">грн</span></div>
+              <button type="button" class="basket-delete-btn" id="${id}">&#10005;</button>
             </div>
             <div class="counter basket" data-action="counter">
               <button
-                class="order-decrement js-reduce"
+                class="order-decrement ${id === 1 ? "js-reduce-special": "js-reduce"}"
                 type="button"
                 data-action="decrement"
               >
-                -
+              &#8722;
               </button>
               <div class="order-value js-value" data-action="value">${value}</div>
               <button
-                class="order-increment js-add"
+                class="order-increment ${id === 1? "js-add-special": "js-add"}"
                 type="button"
                 data-action="increment"
               >
-                +
+              &#43;
               </button>
             </div>
           </div>
