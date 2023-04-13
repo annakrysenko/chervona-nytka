@@ -1,4 +1,5 @@
 import { data } from '../data';
+import { refs } from './refs';
 const LS_KEY_ADD_TO = 'Add-to-basket';
 import { data } from '../data';
 import { renderMarkupArticlesInBasket } from './basketItems';
@@ -8,6 +9,7 @@ import {
 } from './localStorageService';
 import { auditBasket } from './markupBasket';
 import { handleCloseModal } from './modal-open-close';
+
 const LSData = getDataFromLockalStorageByKey(LS_KEY_ADD_TO) ?? [];
 const body = document.querySelector('body');
 const form = document.querySelector('form');
@@ -17,35 +19,15 @@ body.addEventListener('click', handleReduceValueBtnClick);
 body.addEventListener('click', handleRemoveEl);
 // submitBtn.addEventListener('click', handleSubmitForm);
 function handleRemoveEl(e) {
-  const el = e.target.closest('.basket-delete-btn');
-  if (!el) return;
-
-  const idCard = e.target.id;
-
-  const newLSData = LSData.filter(el => {
-    return el.id !== idCard;
-  });
-
-  if (newLSData.length === 0) {
-    auditBasket(newLSData);
-    return;
-  }
+  const elem = e.target;
+  const article = elem.closest('.js-articleId');
+  const removeBtn = article.querySelector('.basket-delete-btn');
+  if (elem !== removeBtn) return;
+  const idCard = article.id;
+  const newLSData = LSData.filter(el => Number(el.id) !== Number(idCard));
+  if (newLSData.length === 0) auditBasket(newLSData);
   setDataToLocalStorageByKey(LS_KEY_ADD_TO, newLSData);
-  // const newF = getDataFromLockalStorageByKey(LS_KEY_ADD_TO);
-
-  // const uppdateData = data.reduce((acc, obj1) => {
-  //   // Якщо в data є об'єкти з такими самими id як в об'єктах з LSData, то знаходимо та вибираємо ці об'єкти:
-  //   const obj2 = newF.find(obj2 => Number(obj2.id) === obj1.id);
-  //   if (obj2) {
-  //     // Якщо знайдено відповідний об'єкт в LSData, то додаємо поле value до obj1
-  //     acc.push({ ...obj1, value: obj2.value });
-  //   }
-  //   return acc;
-  // }, []);
-  // renderMarkupArticlesInBasket(uppdateData);
-
   location.reload();
-  return;
 }
 function handleAddValueBtnClick(e) {
   const elem = e.target;
@@ -115,5 +97,4 @@ function handleSubmitForm(e) {
   removeLS();
   handleCloseModal();
 }
-  // handleCloseModal();
-
+// handleCloseModal();
