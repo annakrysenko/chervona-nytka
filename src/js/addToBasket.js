@@ -79,7 +79,7 @@ function handleSpecialBtnClick() {
 }
 
 function checkLSById(id) {
-  let data = getDataFromLockalStorageByKey(LS_KEY_ADD_TO);
+  let data = getDataFromLockalStorageByKey(LS_KEY_ADD_TO) || [];
   return data.find(article => article.id === id);
 }
 
