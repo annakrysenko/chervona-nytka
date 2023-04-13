@@ -57,14 +57,19 @@
     white-space: nowrap;
   }
 }
-
-.basket-item-price {
+.basket-item-price-wrapper {
+  display: flex;
   font-family: $secondary-font-style;
   @include font(700, 18px, 120%, 0.03em);
   @include tablet {
     @include font(700, 22px, 120%, 0.03em);
   }
+  align-items: center;
+  gap: 20px;
+  font-weight: bold;
+  
 }
+
 .basket {
   @include tablet {
     margin-left: 60px;
@@ -153,22 +158,28 @@
     margin-bottom: 56px;
   }
 }
-.basket-total-price {
+
+.basket-total-price-wrapper {
+  border: 1px solid $accent-btn-color;
+  border-radius: 2px;
   display: flex;
   align-items: center;
-  justify-content: center;
-  @include font(700, 18px, 120%, 0.03em);
+  gap: 30px;
+  
   font-family: $secondary-font-style;
-  padding: 17px 23px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  border: 1px solid $accent-btn-color;
+  @include font(700, 18px, 120%, 0.03em);
   @include tablet {
     @include font(700, 26px, 120%, 0.03em);
     padding: 15px 20px;
     margin-top: 52px;
     margin-bottom: 52px;
   }
+}
+.basket-total-price {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
 }
 .basket-form {
   display: flex;
@@ -214,12 +225,13 @@
 }
 
 .basket-form_btn {
+  font-family: $secondary-font-style;
   display: block;
   width: 209px;
   height: 54px;
   padding: 16px 32px;
   border-radius: 10px;
-  color: $background-card-color;
+  color: $background-color;
   background-color: $accent-btn-color;
   border: 1px solid $accent-btn-color;
   margin-top: 70px;
@@ -251,16 +263,19 @@
 }
 
 .basket-delete-btn {
+  color: #a90d22;
+  padding: 0px 4px;
+  text-align: center;
   display: block;
   font-family: $secondary-font-style;
   background-color: $background-color;
-  @include font(400, 20px, 120%, 0.03em);
+  @include font(400, 16px, 120%, 0.03em);
   width: 25px;
   height: 25px;
   border: 1px solid $accent-btn-color;
   border-radius: 4px;
   @include tablet {
-    @include font(400, 22px, 120%, 0.03em);
+    @include font(400, 20px, 120%, 0.03em);
     width: 28px;
     height: 28px;
   }

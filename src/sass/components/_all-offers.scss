@@ -147,6 +147,7 @@
 }
 
 .order-decrement {
+  font-family: $secondary-font-style;
   width: 30px;
   height: 32px;
   background-color: #fffcfc;
@@ -156,6 +157,7 @@
   border-radius: 2px 0px 0px 2px;
 }
 .order-increment {
+  font-family: $secondary-font-style;
   width: 30px;
   height: 32px;
   background-color: #fffcfc;
