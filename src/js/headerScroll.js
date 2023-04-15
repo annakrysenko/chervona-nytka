@@ -3,13 +3,14 @@ import { refs } from './refs';
 window.addEventListener('load', () => {
   const toScrollLocal = localStorage.getItem('scroll');
   if (
-    (toScrollLocal && document.location.pathname === '/chervona-nytka/index.html') ||
+    (toScrollLocal &&
+      document.location.pathname === '/chervona-nytka/index.html') ||
     document.location.pathname === '/'
   ) {
     const elementToScroll = switchForScroll(toScrollLocal);
 
     scrollTo(elementToScroll.offsetTop);
-    localStorage.clear('scroll', '');
+    localStorage.removeItem('scroll', '');
   }
 });
 
