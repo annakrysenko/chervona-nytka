@@ -23,6 +23,9 @@ export const refs = {
   offersList: document.querySelector('.offers-list'),
   // basket
   basketListEl: document.querySelector('.basket-list'),
+  goToOffersBtn: document.querySelector('.basket-link-home'),
   // special
   specials: document.querySelector('.js-special'),
+  // hero
+  heroBtn: document.querySelector('.hero__btn'),
 };

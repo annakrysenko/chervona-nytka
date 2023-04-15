@@ -33,7 +33,7 @@ if (refs.nav)
     }
   });
 
-function scrollTo(el) {
+export function scrollTo(el) {
   // console.log('el=====>', el);
   window.scrollTo({
     left: 0,

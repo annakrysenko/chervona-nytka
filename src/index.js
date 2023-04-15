@@ -5,5 +5,6 @@ import './js/allOffers.js';
 import './js/addToBasket.js';
 import './js/scroll-to-top.js';
 import './js/headerBasketChange.js';
+import './js/hero.js';
 
 // console.log(document.location.pathname);
