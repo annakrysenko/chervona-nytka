@@ -109,6 +109,7 @@
 }
 
 .special-offer__img {
+  rotate: 90deg;
   width: 100%;
   @include desktop {
     width: 540px;
