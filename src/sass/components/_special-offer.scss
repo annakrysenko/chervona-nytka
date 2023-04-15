@@ -1,49 +1,66 @@
 .special-offer {
-  background-image: url('../images/hero/background@1x-mobile.jpg');
+  position: relative;
+  background-image: url('../images/hero/hero-thread-mobile.webp'),
+    url('../images/hero/background@1x-mobile.jpg');
   @include retina {
-    background-image: url('../images/hero/background@2x-mobile.jpg');
+    background-image: url('../images/hero/hero-thread-mobile_2x.webp'),
+      url('../images/hero/background@2x-mobile.jpg');
   }
+  background-size: 250px, 376px;
+  background-position: bottom 67px left 63px, center;
+  background-repeat: no-repeat, repeat-x;
+
   height: 604px;
   margin: 24px 0;
 
   @include tablet {
-    background-image: url('../images/hero/background@1x-tablet.jpg');
+    background-image: url('../images/hero/hero-thread-tablet.webp'),
+      url('../images/hero/background@1x-tablet.jpg');
     @include retina {
-      background-image: url('../images/hero/background@2x-tablet.jpg');
+      background-image: url('../images/hero/hero-thread-tablet_2x.webp'),
+        url('../images/hero/background@2x-tablet.jpg');
     }
+    background-size: 322px, 834px;
+    background-position: top 40px right 76px, center;
+    background-repeat: no-repeat, repeat-x;
 
     height: 496px;
     margin: 56px 0;
   }
 
   @include desktop {
-    background-image: url('../images/hero/background@1x-desktop.jpg');
+    background-image: url('../images/hero/hero-thread-desktop.webp'),
+      url('../images/hero/background@1x-desktop.jpg');
     @include retina {
-      background-image: url('../images/hero/background@2x-desktop.jpg');
+      background-image: url('../images/hero/hero-thread-desktop_2x.webp'),
+        url('../images/hero/background@2x-desktop.jpg');
     }
+    background-size: 540px, 1440px;
+    background-position: top 55px right 200px, center;
+    background-repeat: no-repeat, repeat-x;
 
     height: 632px;
     margin: 88px 0;
   }
 }
 
-.special-offer__container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 24px;
-  padding-bottom: 0;
+// .special-offer__container {
+//   padding: 24px;
+//   padding-bottom: 0;
 
-  @include tablet {
-    flex-direction: row;
-    padding: 40px;
-  }
-  @include desktop {
-    padding: 0 165px;
-  }
-}
+//   @include tablet {
+//     flex-direction: row;
+//     padding: 40px;
+//   }
+//   @include desktop {
+//     padding: 0 165px;
+//   }
+// }
 
 .special-offer__square {
+  position: absolute;
+  top: 24px;
+  left: 34px;
   width: 308px;
   height: 263px;
   border: 4px solid $accent-btn-color;
@@ -52,12 +69,14 @@
   @include tablet {
     width: 354px;
     height: 322px;
-    margin: 0 21px;
+    top: 40px;
+    left: 61px;
   }
   @include desktop {
     width: 476px;
     height: 404px;
-    margin: 0 28px;
+    top: 80px;
+    left: 193px;
   }
 }
 
@@ -108,18 +127,10 @@
   }
 }
 
-.special-offer__img {
-  rotate: 90deg;
-  width: 100%;
-  @include desktop {
-    width: 540px;
-    margin-top: 55px;
-  }
-}
-
 .special-offer__btn {
-  margin: 0 auto;
-  display: flex;
+  position: absolute;
+  bottom: 24px;
+  left: 92px;
   width: fit-content;
   padding: 10px 24px;
   color: $background-color;
@@ -132,11 +143,12 @@
 
   @include tablet {
     padding: 16px 32px;
-    margin-left: 220px;
+    bottom: 40px;
+    left: 220px;
   }
   @include desktop {
-    margin-left: 480px;
-    margin-top: -55px;
+    bottom: 54px;
+    left: 481px;
   }
 
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
