@@ -109,6 +109,7 @@
 }
 
 .special-offer__img {
+  rotate: 90deg;
   width: 100%;
   @include desktop {
     width: 540px;
@@ -127,6 +128,7 @@
   @include font(700, 18px, 22px, 0.03em);
   border: none;
   border-radius: 10px;
+  cursor: pointer;
 
   @include tablet {
     padding: 16px 32px;
@@ -135,5 +137,13 @@
   @include desktop {
     margin-left: 480px;
     margin-top: -55px;
+  }
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  &:hover {
+    background-color: $hover-btn-color;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
+      1px 4px 6px rgba(0, 0, 0, 0.16);
   }
 }
