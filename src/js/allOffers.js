@@ -52,9 +52,7 @@ const renderMarkupAllOffers = () => {
           </button>
         </div>
       </div>
-      <button class="order-btn ${id === 1 ? 'js-order-special' : 'js-order'}">${
-        isInBasket ? 'В кошику' : 'Замовити'
-      }</button>
+      <button class="order-btn ${id === 1 ? "js-order-special" : "js-order"} ${isInBasket?'in-basket':''}">${isInBasket?'В кошику':'Замовити'}</button>
     </li>`;
     })
     .join('');
@@ -63,3 +61,4 @@ const renderMarkupAllOffers = () => {
 };
 
 renderMarkupAllOffers();
+// .in-basket

@@ -1,3 +1,5 @@
+import Toastify from 'toastify-js';
+import "toastify-js/src/toastify.css";
 import {getDataFromLockalStorageByKey, setDataToLocalStorageByKey, checkLS} from './localStorageService';
 import { refs } from './refs';
 
@@ -55,11 +57,25 @@ function handleOrderBtnClick(e) {
   const dataByLs = checkLS(LS_KEY_ADD_TO);
   const check = checkLSById(id);
   if (check) {
-    alert('Ця нитка вже додана. Перейдіть в кошик для завершення замовлення.');
+    Toastify({
+      text: 'Ця нитка вже додана. Перейдіть в кошик для завершення замовлення',
+      duration: 3000,
+      newWindow: true,
+      close: true,
+      gravity: "top",
+      position: "center",
+      stopOnFocus: true, 
+      style: {
+        background: "#6CB0F3",
+        fontFamily: 'Roboto',
+      },
+    }).showToast();
+
     return;
   }
   setDataToLocalStorageByKey(LS_KEY_ADD_TO, [...dataByLs, ...[{ id, value }]]);
   orderBtn.textContent = "В кошику";
+  orderBtn.classList.add("in-basket");
   addBtn.setAttribute('disabled', 'disabled');
   reduceBtn.setAttribute('disabled', 'disabled');
   const basketBtnFull = document.querySelector('.header-btn-basket-full');
@@ -126,11 +142,23 @@ function handleOrderSpecialBtnClick(e) {
   const dataByLs = checkLS(LS_KEY_ADD_TO);
   const check = checkLSById(id);
   if (check) {
-    alert('Ця нитка вже додана. Перейдіть в кошик для завершення замовлення.');
+    Toastify({
+      text: 'Ця нитка вже додана. Перейдіть в кошик для завершення замовлення',
+      duration: 2000,
+      close: true,
+      gravity: "top",
+      position: "center",
+      stopOnFocus: true,
+      style: {
+        backgroundColor: "#F4F9FE",
+        fontFamily: 'Roboto',
+      },
+    }).showToast();
     return;
   }
   setDataToLocalStorageByKey(LS_KEY_ADD_TO, [...dataByLs, ...[{ id, value }]]);
   specialOrdereBtn.textContent = "В кошику";
+  specialOrdereBtn.classList.add("in-basket");
   specialAddeBtn.setAttribute('disabled', 'disabled');
   specialReduceBtn.setAttribute('disabled', 'disabled');
   const basketBtnFull = document.querySelector('.header-btn-basket-full');
