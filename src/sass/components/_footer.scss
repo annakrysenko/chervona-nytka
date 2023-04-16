@@ -79,7 +79,7 @@ footer {
 }
 .logo-name {
   padding-top: 8px;
-  
+
   @include desktop {
     width: 214px;
   }
@@ -88,6 +88,7 @@ footer {
 .footer-subtitle {
   @include font(500, 15px, 120%, 0.03em);
   margin-bottom: 12px;
+  font-style: italic;
 }
 
 .footer-txt {
