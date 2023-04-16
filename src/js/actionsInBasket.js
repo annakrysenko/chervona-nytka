@@ -5,7 +5,6 @@ import {
 } from './localStorageService';
 import { auditBasket } from './markupBasket';
 
-
 const LSData = getDataFromLockalStorageByKey(LS_KEY_ADD_TO) ?? [];
 const body = document.querySelector('body');
 
@@ -42,7 +41,7 @@ function handleAddValueBtnClick(e) {
 
 function handleReduceValueBtnClick(e) {
   const elem = e.target;
-  if (!elem.classList.contains('js-reduce'))  return;
+  if (!elem.classList.contains('js-reduce')) return;
   const orderArticleIdelem = elem.closest('.js-articleId');
   const priceItem = orderArticleIdelem.querySelector('.basket-item-price');
   const price = Number(priceItem.dataset.price);
@@ -86,8 +85,10 @@ function uppDateTotalPrice() {
 
 const specialReduceBtn = document.querySelector('.js-reduce-special');
 const specialAddeBtn = document.querySelector('.js-add-special');
-if (specialReduceBtn) specialReduceBtn.addEventListener('click', handleReduceSpecialBtnClick);
-if (specialAddeBtn) specialAddeBtn.addEventListener('click', handleAddSpecialBtnClick);
+if (specialReduceBtn)
+  specialReduceBtn.addEventListener('click', handleReduceSpecialBtnClick);
+if (specialAddeBtn)
+  specialAddeBtn.addEventListener('click', handleAddSpecialBtnClick);
 
 function handleReduceSpecialBtnClick(e) {
   const elem = e.target;
@@ -98,7 +99,10 @@ function handleReduceSpecialBtnClick(e) {
   let value = Number(valueOutput.textContent);
   value = value <= 1 ? 1 : value === 5 ? 1 : value - 5;
   valueOutput.textContent = value;
-  priceItem.textContent = value * price;
+  if (value === 1) priceItem.textContent = value * price;
+  if (value === 5) priceItem.textContent = 100;
+  if (value === 10) priceItem.textContent = 180;
+  if (value > 10) priceItem.textContent = value * 18;
   uppDateTotalPrice();
   updateLSData(e);
   return;
@@ -111,9 +115,12 @@ function handleAddSpecialBtnClick(e) {
   const price = Number(priceItem.dataset.price);
   let valueOutput = orderArticleElem.querySelector('.js-value');
   let value = Number(valueOutput.textContent);
-  value = value <1 ? (value = 1) : value === 1 ? (value += 4) : (value += 5);
+  value = value < 1 ? (value = 1) : value === 1 ? (value += 4) : (value += 5);
   valueOutput.textContent = value;
-  priceItem.textContent = value * price;
+  if (value === 1) priceItem.textContent = value * price;
+  if (value === 5) priceItem.textContent = 100;
+  if (value === 10) priceItem.textContent = 180;
+  if (value > 10) priceItem.textContent = value * 18;
   uppDateTotalPrice();
   updateLSData(e);
   return;

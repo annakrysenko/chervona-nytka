@@ -237,7 +237,6 @@
   }
 }
 .select {
-  // color: $input-text-color;
   font-family: $secondary-font-style;
   -moz-appearance: none;
   -webkit-appearance: none;
@@ -252,25 +251,15 @@
 .select option {
   font-weight: normal;
   color: $primary-text-color;
-  &:first-child {
-    color: $input-text-color;
-  }
+  
 }
+
 *[dir="rtl"] .select,
 :root:lang(ar) .select,
 :root:lang(iw) .select {
   background-position: left 0.7em top 50%, 0 0;
   padding: 0.6em 0.8em 0.5em 1.4em;
 }
-
-// .select-basket {
-//   font-family: $secondary-font-style;
-//   color: $input-text-color;
-//   @include font(400, 15px, 120%, 0.03em);
-//   &::placeholder {
-//     color: $input-text-color;
-//   }
-// }
 
 .basket-form_btn {
   font-family: $secondary-font-style;

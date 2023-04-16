@@ -28,7 +28,7 @@ export const renderMarkupArticlesInBasket = fullDataInBasket => {
                   ${name}
                 </h3>
               </div>
-              <div class="basket-item-price-wrapper"><p class="basket-item-price" data-price="${price}">${priceItem} </p><span class="valute">грн</span></div>
+              <div class="basket-item-price-wrapper"><p class="basket-item-price ${id === 1 ? 'js-first-position' : ''}" data-price="${price}">${priceItem} </p><span class="valute">грн</span></div>
               <button type="button" class="basket-delete-btn" id="${id}">&#10005;</button>
             </div>
             <div class="counter basket" data-action="counter">
