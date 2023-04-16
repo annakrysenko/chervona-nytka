@@ -24,7 +24,7 @@ export const data = [
   },
   {
     id: 2,
-    name: 'Нитка з кулоном “Око Фатіми',
+    name: 'Нитка з кулоном “Око Фатіми”',
     price: 49,
     url: thread_2,
   },
