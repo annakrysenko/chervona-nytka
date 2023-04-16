@@ -86,7 +86,15 @@
     background-color: $hover-btn-color;
   }
 }
-
+.in-basket {
+  background-color: #F4F9FE;
+  color: #81C5FF;
+  border-top: 1px solid #81C5FF;
+  &:hover {
+    background-color: #F4F9FE;
+    color: #81C5FF;
+  }
+}
 .offers-subtitle {
   margin-top: 4px;
   margin-bottom: 4px;
