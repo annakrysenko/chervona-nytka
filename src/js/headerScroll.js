@@ -10,7 +10,7 @@ window.addEventListener('load', () => {
     const elementToScroll = switchForScroll(toScrollLocal);
 
     scrollTo(elementToScroll.offsetTop);
-    // localStorage.removeItem('scroll', '');
+    localStorage.removeItem('scroll', '');
   }
 });
 

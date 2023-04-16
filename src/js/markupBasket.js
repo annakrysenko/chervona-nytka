@@ -1,5 +1,6 @@
 const LS_KEY_ADD_TO = 'Add-to-basket';
 import { getDataFromLockalStorageByKey } from './localStorageService';
+import { refs } from './refs';
 
 const LSData = getDataFromLockalStorageByKey(LS_KEY_ADD_TO) || [];
 
@@ -13,6 +14,15 @@ export function auditBasket(LSData) {
   if (LSData.length === 0) {
     basketSection.style.display = 'none';
     basket.innerHTML = basketEmpty;
+
+    // додала слухач на кнопку
+    basket.addEventListener('click', e => {
+      if (e.target.nodeName !== 'BUTTON') {
+        return;
+      }
+      localStorage.setItem('scroll', e.target.dataset.section);
+      document.location.pathname = '/chervona-nytka/index.html';
+    });
   }
 }
 auditBasket(LSData);
