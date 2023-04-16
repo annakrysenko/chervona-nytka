@@ -6,6 +6,7 @@
 
     width: 100vw;
     border-bottom: 1px solid $hover-btn-color;
+    background: rgba(248, 248, 248, 0.5);
 }
 .header-wrapper {
     @include max-mobile {
