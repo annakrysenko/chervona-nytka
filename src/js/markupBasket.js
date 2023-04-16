@@ -8,9 +8,8 @@ const basketSection = document.querySelector('.js-basket-section');
 
 export function auditBasket(LSData) {
   const basketEmpty = `<section class="basket-empty"><div class="basket-empty-text-wrapper"><p class="basket-empty-title">Кошик порожній</p><p class="basket-empty-text">Але це ніколи  не пізно виправити :)</p></div>
-   <a href="./index.html" class="basket-link-home" noopener noreferrer
-      >Продовжити покупки</a
-    ></section>`;
+   <button data-section="allOffersSection" class="basket-link-home" type="button" 
+      >Продовжити покупки</button></section>`;
   if (LSData.length === 0) {
     basketSection.style.display = 'none';
     basket.innerHTML = basketEmpty;
