@@ -1,12 +1,12 @@
 .header {
     position: fixed;
     z-index: 10;
-    background-color: white;
+    // background-color: white;
     box-shadow: rgba(2, 1, 43, 0.113) 0px 25px 20px -20px;
 
     width: 100vw;
     border-bottom: 1px solid $hover-btn-color;
-    background: rgba(248, 248, 248, 0.5);
+    background: rgb(244, 244, 244);
 }
 .header-wrapper {
     @include max-mobile {
@@ -93,7 +93,7 @@
 .nav {
     display: flex;
     align-items: center;
-    background-color: white;
+    // background-color: white;
     font-family: $secondary-font-style;
     @include max-mobile {
         display: none;
