@@ -43,41 +43,41 @@ export function scrollTo(el) {
 }
 
 window.addEventListener('scroll', () => {
-  // if ((document.location.pathname = '/chervona-nytka/index.html')) {
-  if (
-    refs.allOffersSection.getBoundingClientRect().top < 138 &&
-    refs.allOffersSection.getBoundingClientRect().bottom > 139
-  ) {
-    refs.allOffersBtn.classList.add('active');
-  } else {
-    refs.allOffersBtn.classList.remove('active');
-  }
+  if (document.location.pathname === '/chervona-nytka/index.html') {
+    if (
+      refs.allOffersSection.getBoundingClientRect().top < 138 &&
+      refs.allOffersSection.getBoundingClientRect().bottom > 139
+    ) {
+      refs.allOffersBtn.classList.add('active');
+    } else {
+      refs.allOffersBtn.classList.remove('active');
+    }
 
-  if (
-    refs.advantagesSection.getBoundingClientRect().top < 138 &&
-    refs.advantagesSection.getBoundingClientRect().bottom > 138
-  ) {
-    refs.advantagesBtn.classList.add('active');
-  } else {
-    refs.advantagesBtn.classList.remove('active');
-  }
+    if (
+      refs.advantagesSection.getBoundingClientRect().top < 138 &&
+      refs.advantagesSection.getBoundingClientRect().bottom > 138
+    ) {
+      refs.advantagesBtn.classList.add('active');
+    } else {
+      refs.advantagesBtn.classList.remove('active');
+    }
 
-  if (
-    refs.reviewsSection.getBoundingClientRect().top < 138 &&
-    refs.reviewsSection.getBoundingClientRect().bottom >
-      refs.reviewsSection.getBoundingClientRect().height
-  ) {
-    refs.reviewsBtn.classList.add('active');
-  } else {
-    refs.reviewsBtn.classList.remove('active');
-  }
+    if (
+      refs.reviewsSection.getBoundingClientRect().top < 138 &&
+      refs.reviewsSection.getBoundingClientRect().bottom >
+        refs.reviewsSection.getBoundingClientRect().height
+    ) {
+      refs.reviewsBtn.classList.add('active');
+    } else {
+      refs.reviewsBtn.classList.remove('active');
+    }
 
-  if (document.documentElement.getBoundingClientRect().bottom < 800) {
-    refs.footerBtn.classList.add('active');
-  } else {
-    refs.footerBtn.classList.remove('active');
+    if (document.documentElement.getBoundingClientRect().bottom < 800) {
+      refs.footerBtn.classList.add('active');
+    } else {
+      refs.footerBtn.classList.remove('active');
+    }
   }
-  // }
 });
 
 function switchForScroll(name) {
