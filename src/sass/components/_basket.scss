@@ -4,13 +4,18 @@
 
 .basket-title {
   white-space: nowrap;
+
   @include font(400, 32px, 120%, 0.03em);
   margin-bottom: 32px;
+  padding-top: 33px;
+
   @include tablet {
     @include font(400, 42px, 120%, 0.03em);
     margin-bottom: 48px;
+    padding-top: 48px;
   }
   @include desktop {
+    padding-top: 52px;
     margin-bottom: 56px;
   }
 }
