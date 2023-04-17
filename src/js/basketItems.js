@@ -23,7 +23,8 @@ export const renderMarkupArticlesInBasket = fullDataInBasket => {
         if (value === 1) return 25;
         if (value === 5) return  100;
         if (value === 10) return  180;
-        if (value > 10) return  value * 18;
+        if (value > 10 && value < 50) return  value * 18;
+        if (value === 50) return  750;
       }
       const priceItemSpecial = calculateSpecItemPrice(value);
 
