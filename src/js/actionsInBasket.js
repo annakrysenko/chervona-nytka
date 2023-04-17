@@ -21,6 +21,7 @@ function handleRemoveEl(e) {
   if (newLSData.length === 0) auditBasket(newLSData);
   setDataToLocalStorageByKey(LS_KEY_ADD_TO, newLSData);
   location.reload();
+  return;
 }
 
 function handleAddValueBtnClick(e) {
