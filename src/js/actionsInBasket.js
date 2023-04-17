@@ -101,8 +101,7 @@ function handleReduceSpecialBtnClick(e) {
   valueOutput.textContent = value;
   if (value === 1) priceItem.textContent = value * price;
   if (value === 5) priceItem.textContent = 100;
-  if (value === 10) priceItem.textContent = 180;
-  if (value > 10 && value < 50) priceItem.textContent = value * 18;
+  if (value >= 10 && value < 50) priceItem.textContent = value * 18;
   if (value === 50) priceItem.textContent = 750;
   uppDateTotalPrice();
   updateLSData(e);
@@ -120,8 +119,7 @@ function handleAddSpecialBtnClick(e) {
   valueOutput.textContent = value;
   if (value === 1) priceItem.textContent = value * price;
   if (value === 5) priceItem.textContent = 100;
-  if (value === 10) priceItem.textContent = 180;
-  if (value > 10 && value < 50) priceItem.textContent = value * 18;
+  if (value >= 10 && value < 50) priceItem.textContent = value * 18;
   if (value === 50) priceItem.textContent = 750;
   uppDateTotalPrice();
   updateLSData(e);
