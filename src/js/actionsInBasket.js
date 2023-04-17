@@ -7,7 +7,12 @@ import { auditBasket } from './markupBasket';
 
 const LSData = getDataFromLockalStorageByKey(LS_KEY_ADD_TO) ?? [];
 const body = document.querySelector('body');
+<<<<<<< Updated upstream
 
+=======
+// const form = document.querySelector('form');
+// const submitBtn = document.querySelector('.basket-form_btn');
+>>>>>>> Stashed changes
 body.addEventListener('click', handleAddValueBtnClick);
 body.addEventListener('click', handleReduceValueBtnClick);
 body.addEventListener('click', handleRemoveEl);
