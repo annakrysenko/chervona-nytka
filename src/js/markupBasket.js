@@ -21,7 +21,7 @@ export function auditBasket(LSData) {
         return;
       }
       localStorage.setItem('scroll', e.target.dataset.section);
-      document.location.pathname = '/chervona-nytka/index.html';
+      document.location.pathname = '/';
     });
   }
 }

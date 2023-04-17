@@ -2,11 +2,7 @@ import { refs } from './refs';
 
 window.addEventListener('load', () => {
   const toScrollLocal = localStorage.getItem('scroll');
-  if (
-    (toScrollLocal &&
-      document.location.pathname === '/chervona-nytka/index.html') ||
-    document.location.pathname === '/'
-  ) {
+  if (toScrollLocal && document.location.pathname === '/') {
     const elementToScroll = switchForScroll(toScrollLocal);
 
     scrollTo(elementToScroll.offsetTop);
@@ -20,14 +16,11 @@ if (refs.nav)
       return;
     }
 
-    if (document.location.pathname === '/chervona-nytka/basket.html') {
+    if (document.location.pathname === '/basket.html') {
       localStorage.setItem('scroll', e.target.dataset.section);
-      document.location.pathname = '/chervona-nytka/index.html';
+      document.location.pathname = '/';
     }
-    if (
-      document.location.pathname === '/chervona-nytka/index.html' ||
-      document.location.pathname === '/chervona-nytka/'
-    ) {
+    if (document.location.pathname === '/') {
       const elementToScrollIndex = switchForScroll(e.target.dataset.section);
       scrollTo(elementToScrollIndex.offsetTop);
     }
@@ -43,7 +36,7 @@ export function scrollTo(el) {
 }
 
 window.addEventListener('scroll', () => {
-  if (document.location.pathname === '/chervona-nytka/index.html') {
+  if (document.location.pathname === '/') {
     if (
       refs.allOffersSection.getBoundingClientRect().top < 138 &&
       refs.allOffersSection.getBoundingClientRect().bottom > 139
