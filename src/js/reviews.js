@@ -27,6 +27,7 @@ export const swiper = new Swiper('.swiper', {
   },
 });
 
+//
 const renderMarkupSlider = () => {
   const markup = data
     .map(({ text, auctor }) => {
