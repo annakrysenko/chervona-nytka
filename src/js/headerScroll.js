@@ -72,6 +72,7 @@ window.addEventListener('scroll', () => {
     }
   }
 });
+//
 
 function switchForScroll(name) {
   let el;
