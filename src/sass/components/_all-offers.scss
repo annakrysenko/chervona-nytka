@@ -76,12 +76,17 @@
   text-align: center;
   color: #ffffff;
   @include tablet {
-    height: 50px;
+    height: 40px;
     @include font(700, 18px, 120%, 0.03em);
-    padding: 14px 0;
+    padding: 10px 0;
+  }
+  @include desktop {
+    height: 50px;
+    padding: 12px 0;
   }
   &:hover {
     background-color: $hover-btn-color;
+    
   }
 }
 .in-basket {
@@ -122,11 +127,12 @@
   overflow: hidden;
   border-radius: 10px;
   height: 137px;
+  width: 150px;
   @include tablet {
     height: 210px;
     width: 216px;
   }
-  @include tablet {
+  @include desktop {
     width: 222px;
     height: 200px;
   }
@@ -148,8 +154,16 @@
   z-index: 2;
 }
 .counter {
+  position: absolute;
+  bottom: 36px;
   display: flex;
   margin: 5px auto;
+  @include tablet {
+    bottom: 42px;
+  }
+  @include desktop {
+    bottom: 52px;
+  }
 }
 
 .order-decrement {

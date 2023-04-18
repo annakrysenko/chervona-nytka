@@ -1,5 +1,7 @@
 import { data } from '../data';
 import { refs } from './refs';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const LS_KEY_ADD_TO = 'Add-to-basket';
 import {
@@ -16,7 +18,7 @@ const renderMarkupAllOffers = () => {
     .map(({ id, name, price, url }) => {
       const isInBasket = IDs.includes(id);
       return `      
-      <li class="offers-item js-articleId" id="${id}">
+      <li class="offers-item js-articleId" data-aos="fade-up" id="${id}">
       <div class="offers-item-wrapper">
         <div class="offers-thumb">
           <img
@@ -52,12 +54,17 @@ const renderMarkupAllOffers = () => {
           </button>
         </div>
       </div>
-      <button class="order-btn ${id === 1 ? "js-order-special" : "js-order"} ${isInBasket?'in-basket':''}">${isInBasket?'В кошику':'Замовити'}</button>
+      <button class="order-btn ${id === 1 ? 'js-order-special' : 'js-order'} ${
+        isInBasket ? 'in-basket' : ''
+      }">${isInBasket ? 'В кошику' : 'Замовити'}</button>
     </li>`;
     })
     .join('');
 
   if (refs.offersList) refs.offersList.insertAdjacentHTML('beforeend', markup);
+
+  AOS.init();
+  // AOS.refreshHard();
 };
 
 renderMarkupAllOffers();
