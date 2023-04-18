@@ -42,7 +42,7 @@ export const renderMarkupArticlesInBasket = fullDataInBasket => {
               <div class="basket-item-price-wrapper"><p class="basket-item-price ${id === 1 ? 'js-first-position' : ''}" data-price="${price}">${id === 1 ? priceItemSpecial : priceItem} </p><span class="valute">грн</span></div>
               <button type="button" class="basket-delete-btn" id="${id}">&#10005;</button>
             </div>
-            <div class="counter basket" data-action="counter">
+            <div class="counter counter-basket basket" data-action="counter">
               <button
                 class="order-decrement ${id === 1 ? "js-reduce-special": "js-reduce"}"
                 type="button"

@@ -165,6 +165,18 @@
     bottom: 52px;
   }
 }
+.counter-basket {
+  position: relative;
+  bottom: 36px;
+  display: flex;
+  margin: 5px auto;
+  // @include tablet {
+  //   bottom: 42px;
+  // }
+  // @include desktop {
+  //   bottom: 52px;
+  // }
+}
 
 .order-decrement {
   font-family: $secondary-font-style;
