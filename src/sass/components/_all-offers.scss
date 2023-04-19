@@ -21,9 +21,6 @@
   @include desktop {
     gap: 46px;
   }
-  // @include max-mobile {
-
-  //   }
 }
 
 .offers-item {
@@ -164,6 +161,12 @@
   @include desktop {
     bottom: 52px;
   }
+}
+.counter-basket {
+  position: static;
+  bottom: 36px;
+  display: flex;
+  margin: 5px auto;
 }
 
 .order-decrement {
