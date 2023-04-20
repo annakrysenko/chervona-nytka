@@ -1,17 +1,16 @@
 import { data } from '../data';
 import { getDataFromLockalStorageByKey } from './localStorageService';
-
 const LS_KEY = 'selectedvalue';
-const formBtn = document.querySelector('.basket-form_btn');
+// const formBtn = document.querySelector('.basket-form_btn');
 const modal = document.querySelector('.backdrop');
+const totalEl = document.querySelector('.basket-total-price');
+const total = totalEl.textContent;
 const closeBtn = document.querySelector('.modal-link-home');
 closeBtn.addEventListener('click', handleCloseModal);
-formBtn.addEventListener('click', handleCloseModal);
+// formBtn.addEventListener('click', handleCloseModal);
 const formEl = document.querySelector('.basket-form');
-
 const LS_KEY_ADD_TO = 'Add-to-basket';
 const LSData = getDataFromLockalStorageByKey(LS_KEY_ADD_TO) || [];
-
 const fullDataInBasket = data =>
   data.reduce((acc, obj1) => {
     // Якщо в data є об'єкти з такими самими id як в об'єктах з LSData, то знаходимо та вибираємо ці об'єкти:
@@ -23,53 +22,47 @@ const fullDataInBasket = data =>
     return acc;
   }, []);
 const dataFromLS = fullDataInBasket(data);
-
-// if (formEl) formEl.addEventListener('submit', handleSubmit);
+if (formEl) formEl.addEventListener('submit', handleSubmit);
 if (formEl) formEl.addEventListener('change', handleChangeForm);
-
 initForm();
-
 function handleCloseModal() {
   modal.classList.toggle('is-hidden');
 }
-
-// async function handleSubmit(e) {
-//   e.preventDefault();
-//   const formData = new FormData(formEl);
-
-//   const data = JSON.stringify(dataFromLS);
-//   console.log(data);
-//   const blob = new Blob([data], { type: "text/plain" });
-
-//   formData.append('order', blob);
-//   let response = await fetch('sendmail.php', {
-//     method: 'POST',
-//     body: 'formData',
-//   });
-//   if (response.ok) {
-//     //spiner need classList.add("lkdmsm")
-//     let result = await response.json();
-//     alert(result.message);
-//     removeLS();
-//     handleCloseModal();
-//     formEl.reset();
-//     localStorage.removeItem(LS_KEY);
-//     //classList.remove("ksjdxnj")
-//   } else {
-//     alert('error');
-//     //classList.remove("ksjdxnj")
-//   }
-//   // console.log(formData);
-//   // formData.forEach((value, name)=> console.log(value, name));
-// }
-
+async function handleSubmit(e) {
+  e.preventDefault();
+  const totalObj = {total};
+  const totaldata = [...dataFromLS, totalObj];
+  const formData = new FormData(formEl);
+  const data = JSON.stringify(totaldata);
+  const blob = new Blob([data], { type: "text/plain" });
+  formData.append('order', blob);
+  let response = await fetch('sendmail.php', {
+    method: 'POST',
+    body: 'formData',
+  });
+  if (response.ok) {
+    //spiner need classList.add("lkdmsm")
+    let result = await response.json();
+    alert(result.message);
+    removeLS();
+    handleCloseModal();
+    formEl.reset();
+    localStorage.removeItem(LS_KEY);
+    //classList.remove("ksjdxnj")
+  } else {
+    alert('error');
+    // handleCloseModal();
+    //classList.remove("ksjdxnj")
+  }
+  // console.log(formData);
+  // formData.forEach((value, name)=> console.log(value, name));
+}
 function handleChangeForm(e) {
   let persistedFilters = localStorage.getItem(LS_KEY);
   persistedFilters = persistedFilters ? JSON.parse(persistedFilters) : {};
   persistedFilters[e.target.name] = e.target.value;
   localStorage.setItem(LS_KEY, JSON.stringify(persistedFilters));
 }
-
 function initForm() {
   let persistedFilters = localStorage.getItem(LS_KEY);
   if (persistedFilters) {

@@ -22,7 +22,7 @@ $mail->Port = 465;                                    // TCP port to connect to
 //from whom
 $mail->setFrom('cervonanitka@gmail.com','Chervona nytka order');
 //to whom
-$mail->addAddress('krasnaya.nit6@ukr.net','Chervona nytka');
+$mail->addAddress('nastenakissdessa@gmail.com','Chervona nytka');
 //letter subject
 $mail->Subject='Order';
 
