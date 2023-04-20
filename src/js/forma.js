@@ -24,7 +24,7 @@ const fullDataInBasket = data =>
   }, []);
 const dataFromLS = fullDataInBasket(data);
 
-if (formEl) formEl.addEventListener('submit', handleSubmit);
+// if (formEl) formEl.addEventListener('submit', handleSubmit);
 if (formEl) formEl.addEventListener('change', handleChangeForm);
 
 initForm();
