@@ -91,7 +91,7 @@ export const data = [
   {
     id: 13,
     name: 'Підвіска-талісман “Око Фатіми”',
-    price: 49,
+    price: 69,
     url: thread_13,
   },
   {
@@ -109,7 +109,7 @@ export const data = [
   {
     id: 16,
     name: 'Підвіска-талісман “На кохання”',
-    price: 49,
+    price: 69,
     url: thread_16,
   },
 ];
