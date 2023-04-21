@@ -47,6 +47,11 @@
 }
 
 .advantages__image {
+    width: 100%;
+
+    @include mobile {
+        width: $mobile;
+    }
     background-image: url("../images/backgrounds-advantages/advantages-photo@1x-mobile-and-tablet.webp");
     @include retina {
         background-image: url("../images/backgrounds-advantages/advantages-photo@2x-mobile-and-tablet.webp");
@@ -56,10 +61,10 @@
 
     @include max-mobile {
         margin-left: -16px;
-        width: 100%;
+        // width: 100%;
         width: 376px;
         height: 668px;
-        //
+
         background-position-x: right;
     }
 

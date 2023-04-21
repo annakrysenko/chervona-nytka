@@ -13,8 +13,11 @@
 
 .offers-list {
   display: flex;
-  gap: 16px;
   flex-wrap: wrap;
+  gap: 10px;
+  @include mobile {
+    gap: 16px;
+  }
   @include tablet {
     gap: 24px;
   }
@@ -28,6 +31,8 @@
   border: 1px solid $accent-btn-color;
   border-radius: 2px;
   overflow: hidden;
+  flex-basis: calc(((100% - 10px)) / 2);
+  height: 290px;
   transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
   &:hover,
   &:focus {
@@ -123,8 +128,12 @@
   background-color: $background-card-color;
   overflow: hidden;
   border-radius: 10px;
-  height: 137px;
-  width: 150px;
+  height: 135px;
+  width: 100%;
+  @include mobile {
+    height: 137px;
+    width: 150px;
+  }
   @include tablet {
     height: 210px;
     width: 216px;
