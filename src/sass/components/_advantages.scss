@@ -49,21 +49,21 @@
 .advantages__image {
     width: 100%;
 
-    @include mobile {
-        width: $mobile;
-    }
     background-image: url("../images/backgrounds-advantages/advantages-photo@1x-mobile-and-tablet.webp");
     @include retina {
         background-image: url("../images/backgrounds-advantages/advantages-photo@2x-mobile-and-tablet.webp");
     }
     background-repeat: no-repeat;
     background-size: cover;
+    height: 450px;
+    // margin-left: -16px;
+    margin: 0 auto;
 
-    @include max-mobile {
+    @include mobile {
         margin-left: -16px;
-        // width: 100%;
         width: 376px;
         height: 668px;
+        width: $mobile;
 
         background-position-x: right;
     }
