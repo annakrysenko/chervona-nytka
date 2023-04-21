@@ -1,210 +1,216 @@
 .header {
-    position: fixed;
-    z-index: 10;
-    // background-color: white;
-    box-shadow: rgba(2, 1, 43, 0.113) 0px 25px 20px -20px;
+  position: fixed;
+  z-index: 10;
+  // background-color: white;
+  box-shadow: rgba(2, 1, 43, 0.113) 0px 25px 20px -20px;
 
-    width: 100vw;
-    border-bottom: 1px solid $hover-btn-color;
-    background: rgb(244, 244, 244);
+  width: 100vw;
+  border-bottom: 1px solid $hover-btn-color;
+  background: rgb(244, 244, 244);
 }
 .header-wrapper {
-    @include max-mobile {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding-top: 8px;
-        padding-bottom: 2px;
-        padding-left: 16px;
-        padding-right: 16px;
-        margin: 0 auto;
-        width: $mobile;
-        position: relative;
-    }
+  @include pre-mobile {
+    width: $pre-mobile;
+  }
+  @include max-mobile {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 8px;
+    padding-bottom: 2px;
+    padding-left: 16px;
+    padding-right: 16px;
+    margin: 0 auto;
+    position: relative;
+  }
+  @include mobile {
+    width: $mobile;
+  }
 }
 .burger-menu {
-    @include max-mobile {
-        width: 32px;
-        height: 32px;
-        background-image: url("../images/icons/burger-menu.svg");
-        background-size: contain;
-        background-repeat: no-repeat;
-    }
+  @include max-mobile {
+    width: 32px;
+    height: 32px;
+    background-image: url('../images/icons/burger-menu.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
 }
 
 .burger-menu-open {
-    @include max-mobile {
-        width: 32px;
-        height: 32px;
-        background-image: url("../images/icons/burger-menu-open.svg");
-        background-size: contain;
-        background-repeat: no-repeat;
-    }
+  @include max-mobile {
+    width: 32px;
+    height: 32px;
+    background-image: url('../images/icons/burger-menu-open.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
 }
 
 .logo-header-link {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 
-    background-image: url("../images/icons/Logo-1.svg");
-    background-size: contain;
-    background-repeat: no-repeat;
-    @include max-mobile {
-        height: 45px;
-        width: 180px;
-        margin-left: auto;
-    }
+  background-image: url('../images/icons/Logo-1.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  @include max-mobile {
+    height: 45px;
+    width: 180px;
+    margin-left: auto;
+  }
 
-    @include tablet {
-        height: 64px;
-        width: 254px;
-        margin: 0 auto;
-    }
+  @include tablet {
+    height: 64px;
+    width: 254px;
+    margin: 0 auto;
+  }
 }
 
 .nav-wrapper {
-    @include max-mobile {
-    }
-    @include tablet {
-        padding-top: 6px;
-        padding-bottom: 6px;
-        width: 100vw;
-        border-top: 1px solid $hover-btn-color;
-    }
+  @include max-mobile {
+  }
+  @include tablet {
+    padding-top: 6px;
+    padding-bottom: 6px;
+    width: 100vw;
+    border-top: 1px solid $hover-btn-color;
+  }
 }
 
 .nav-container {
-    max-width: 100%;
-    margin: 0 auto;
-    display: flex;
+  max-width: 100%;
+  margin: 0 auto;
+  display: flex;
 
-    @include tablet {
-        width: $tablet;
-        padding: 0 40px;
-        margin: 0 auto;
-    }
-    @include desktop {
-        width: $desktop;
-        padding: 0 165px;
-        margin: 0 auto;
-    }
+  @include tablet {
+    width: $tablet;
+    padding: 0 40px;
+    margin: 0 auto;
+  }
+  @include desktop {
+    width: $desktop;
+    padding: 0 165px;
+    margin: 0 auto;
+  }
 }
 
 .nav {
-    display: flex;
-    align-items: center;
-    // background-color: white;
-    font-family: $secondary-font-style;
-    @include max-mobile {
-        display: none;
-        // position: absolute;
-        // top: 56;
-        // left: 0;
-        // padding: 15px 36px 23px 16px;
-        // border-radius: 5px;
-        // box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px,
-        //     rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
-    }
-    @include tablet {
-        flex-direction: row;
-    }
+  display: flex;
+  align-items: center;
+  // background-color: white;
+  font-family: $secondary-font-style;
+  @include max-mobile {
+    display: none;
+    // position: absolute;
+    // top: 56;
+    // left: 0;
+    // padding: 15px 36px 23px 16px;
+    // border-radius: 5px;
+    // box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px,
+    //     rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+  }
+  @include tablet {
+    flex-direction: row;
+  }
 }
 
 .nav-list {
-    display: flex;
+  display: flex;
 
-    @include max-mobile {
-        flex-direction: column;
-    }
-    @include tablet {
-        flex-direction: row;
-        column-gap: 105px;
-    }
-    @include desktop {
-        column-gap: 195px;
-    }
+  @include max-mobile {
+    flex-direction: column;
+  }
+  @include tablet {
+    flex-direction: row;
+    column-gap: 105px;
+  }
+  @include desktop {
+    column-gap: 195px;
+  }
 }
 
 .nav-text {
-    display: block;
-    background-color: transparent;
-    padding: 0;
-    border: none;
-    @include max-mobile {
-        width: 164px;
-        padding: 16px 0;
-        border-bottom: 1px solid $hover-btn-color;
-        @include font(400, 18px, 1, 0.03em);
-    }
-    @include tablet {
-        @include font(400, 18px, 1.2, 0.03em);
-    }
+  display: block;
+  background-color: transparent;
+  padding: 0;
+  border: none;
+  @include max-mobile {
+    width: 164px;
+    padding: 16px 0;
+    border-bottom: 1px solid $hover-btn-color;
+    @include font(400, 18px, 1, 0.03em);
+  }
+  @include tablet {
+    @include font(400, 18px, 1.2, 0.03em);
+  }
 }
 
 .nav-text:hover,
 .nav-text.active {
-    color: $hover-header-text-color;
+  color: $hover-header-text-color;
 }
 // ======= basket =======
 .header-btn-basket {
-    background-image: url("../images/icons/icon-basket-empty.svg");
-    background-size: contain;
-    background-repeat: no-repeat;
-    width: 32px;
-    height: 32px;
-    display: block;
-    position: relative;
-    @include tablet {
-        margin-left: auto;
-        width: 36px;
-        height: 36px;
-    }
+  background-image: url('../images/icons/icon-basket-empty.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 32px;
+  height: 32px;
+  display: block;
+  position: relative;
+  @include tablet {
+    margin-left: auto;
+    width: 36px;
+    height: 36px;
+  }
 }
 
 .header-btn-basket-full {
-    background-image: url("../images/icons/icon-basket-full.svg");
-    background-size: contain;
-    background-repeat: no-repeat;
-    width: 32px;
-    height: 32px;
-    display: block;
-    position: relative;
-    @include tablet {
-        margin-left: auto;
-        width: 36px;
-        height: 36px;
-    }
+  background-image: url('../images/icons/icon-basket-full.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 32px;
+  height: 32px;
+  display: block;
+  position: relative;
+  @include tablet {
+    margin-left: auto;
+    width: 36px;
+    height: 36px;
+  }
 }
 
 // ======= header menu ========
 .header-menu {
-    background-color: white;
+  background-color: white;
 
-    @include max-mobile {
-        position: absolute;
-        top: 56;
-        left: 0;
-        padding: 15px 36px 23px 16px;
-        border-radius: 5px;
-        box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px,
-            rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
-    }
-    @include tablet {
-        position: absolute;
-        white-space: nowrap;
-        width: 1px;
-        height: 1px;
-        overflow: hidden;
-        border: 0;
-        padding: 0;
-        clip: rect(0 0 0 0);
-        clip-path: inset(50%);
-        margin: -1px;
-    }
+  @include max-mobile {
+    position: absolute;
+    top: 56;
+    left: 0;
+    padding: 15px 36px 23px 16px;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px,
+      rgba(0, 0, 0, 0.1) 0px 2px 4px 0px,
+      rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+  }
+  @include tablet {
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    border: 0;
+    padding: 0;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    margin: -1px;
+  }
 }
 
 .menu-nav {
-    display: flex;
-    align-items: center;
-    font-family: $secondary-font-style;
+  display: flex;
+  align-items: center;
+  font-family: $secondary-font-style;
 }

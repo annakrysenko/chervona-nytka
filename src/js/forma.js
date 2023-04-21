@@ -9,7 +9,6 @@ const formEl = document.querySelector('.basket-form');
 const closeBtn = document.querySelector('.modal-link-home');
 const orderData = {};
 const LSData = getDataFromLockalStorageByKey(LS_KEY_ADD_TO) || [];
-const dateNow = Date.now();
 
 const today = new Date();
 const day = today.getDate().toString().padStart(2, '0');
@@ -18,11 +17,9 @@ const year = today.getFullYear().toString();
 
 const formattedDate = `${day}.${month}.${year}`;
 
-
 if (formEl) formEl.addEventListener('submit', handleSubmit);
 if (formEl) formEl.addEventListener('change', handleChangeForm);
 closeBtn.addEventListener('click', handleCloseModal);
-
 
 const sendData = async data => {
   try {
@@ -61,13 +58,13 @@ const getDataToSend = data =>
     }
     return acc;
   }, []);
-const dataToSend = getDataToSend(data);
 
 function handleCloseModal() {
   modal.classList.toggle('is-hidden');
 }
 async function handleSubmit(e) {
   e.preventDefault();
+  const dataToSend = getDataToSend(data);
   const total = totalEl.textContent;
   const elem = e.target;
   const phone = elem.tel.value;
@@ -80,9 +77,9 @@ async function handleSubmit(e) {
   orderData['МІСТО'] = elem.city.value;
   orderData['ЗАГАЛЬНА_СУМА'] = total;
   orderData['ТОВАРИ'] = dataToSend;
-  console.log(orderData);
 
   sendData(getOrderData(orderData, phone));
+
   localStorage.removeItem(LS_KEY);
   localStorage.removeItem(LS_KEY_ADD_TO);
 
