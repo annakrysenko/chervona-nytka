@@ -1,61 +1,93 @@
 import { data } from '../data';
 import { getDataFromLockalStorageByKey } from './localStorageService';
+const LS_KEY_ADD_TO = 'Add-to-basket';
 const LS_KEY = 'selectedvalue';
-// const formBtn = document.querySelector('.basket-form_btn');
+
 const modal = document.querySelector('.backdrop');
 const totalEl = document.querySelector('.basket-total-price');
-const total = totalEl.textContent;
-const closeBtn = document.querySelector('.modal-link-home');
-closeBtn.addEventListener('click', handleCloseModal);
-// formBtn.addEventListener('click', handleCloseModal);
 const formEl = document.querySelector('.basket-form');
-const LS_KEY_ADD_TO = 'Add-to-basket';
+const closeBtn = document.querySelector('.modal-link-home');
+const orderData = {};
 const LSData = getDataFromLockalStorageByKey(LS_KEY_ADD_TO) || [];
-const fullDataInBasket = data =>
+const dateNow = Date.now();
+
+const today = new Date();
+const day = today.getDate().toString().padStart(2, '0');
+const month = (today.getMonth() + 1).toString().padStart(2, '0');
+const year = today.getFullYear().toString();
+
+const formattedDate = `${day}.${month}.${year}`;
+
+
+if (formEl) formEl.addEventListener('submit', handleSubmit);
+if (formEl) formEl.addEventListener('change', handleChangeForm);
+closeBtn.addEventListener('click', handleCloseModal);
+
+
+const sendData = async data => {
+  try {
+    const response = await fetch(
+      'https://events.sendpulse.com/events/id/1ec8e38825e044b1ec0cd982add80441/8296744',
+      { method: 'POST', body: JSON.stringify(data) }
+    );
+    const msg = await response.json();
+    console.log(msg);
+  } catch (error) {
+    console.log(error.message);
+  }
+};
+
+const getOrderData = (data, phone) => {
+  const id = `${Date.now()}`;
+  return {
+    email: `${id}@mail.com`,
+    phone: phone,
+    order: JSON.stringify(data, null, 2),
+    id: `${id}`,
+  };
+};
+
+const getDataToSend = data =>
   data.reduce((acc, obj1) => {
     // Якщо в data є об'єкти з такими самими id як в об'єктах з LSData, то знаходимо та вибираємо ці об'єкти:
     const obj2 = LSData.find(obj2 => Number(obj2.id) === obj1.id);
     if (obj2) {
       // Якщо знайдено відповідний об'єкт в LSData, то додаємо поле value до obj1
-      acc.push({ ...obj1, value: obj2.value });
+      acc.push({
+        Назва: obj1.name,
+        Ціна: String(obj1.price),
+        Кількість: String(obj2.value),
+      });
     }
     return acc;
   }, []);
-const dataFromLS = fullDataInBasket(data);
-if (formEl) formEl.addEventListener('submit', handleSubmit);
-if (formEl) formEl.addEventListener('change', handleChangeForm);
-initForm();
+const dataToSend = getDataToSend(data);
+
 function handleCloseModal() {
   modal.classList.toggle('is-hidden');
 }
 async function handleSubmit(e) {
   e.preventDefault();
-  const totalObj = {total};
-  const totaldata = [...dataFromLS, totalObj];
-  const formData = new FormData(formEl);
-  const data = JSON.stringify(totaldata);
-  const blob = new Blob([data], { type: "text/plain" });
-  formData.append('order', blob);
-  let response = await fetch('sendmail.php', {
-    method: 'POST',
-    body: 'formData',
-  });
-  if (response.ok) {
-    //spiner need classList.add("lkdmsm")
-    let result = await response.json();
-    alert(result.message);
-    removeLS();
-    handleCloseModal();
-    formEl.reset();
-    localStorage.removeItem(LS_KEY);
-    //classList.remove("ksjdxnj")
-  } else {
-    alert('error');
-    // handleCloseModal();
-    //classList.remove("ksjdxnj")
-  }
-  // console.log(formData);
-  // formData.forEach((value, name)=> console.log(value, name));
+  const total = totalEl.textContent;
+  const elem = e.target;
+  const phone = elem.tel.value;
+  orderData['НОМЕР_ЗАМОВЛЕННЯ'] = `${Date.now()}`;
+  orderData['ДАТА_ЗАМОВЛЕННЯ'] = `${formattedDate}`;
+  orderData["ІМ'Я"] = elem.name.value;
+  orderData['ТЕЛЕФОН'] = elem.tel.value;
+  orderData['СЛУЖБА_ДОСТАВКИ'] = elem.postal.value;
+  orderData['НОМЕР_ВІДДІЛЕННЯ'] = elem.department.value;
+  orderData['МІСТО'] = elem.city.value;
+  orderData['ЗАГАЛЬНА_СУМА'] = total;
+  orderData['ТОВАРИ'] = dataToSend;
+  console.log(orderData);
+
+  sendData(getOrderData(orderData, phone));
+  localStorage.removeItem(LS_KEY);
+  localStorage.removeItem(LS_KEY_ADD_TO);
+
+  handleCloseModal();
+  formEl.reset();
 }
 function handleChangeForm(e) {
   let persistedFilters = localStorage.getItem(LS_KEY);
@@ -72,3 +104,4 @@ function initForm() {
     });
   }
 }
+initForm();
