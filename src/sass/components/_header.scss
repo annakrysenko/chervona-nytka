@@ -9,8 +9,11 @@
   background: rgb(244, 244, 244);
 }
 .header-wrapper {
-  @include pre-mobile {
-    width: $pre-mobile;
+
+    width: 100%;
+
+  @include mobile {
+    width: $mobile;
   }
   @include max-mobile {
     display: flex;
@@ -22,9 +25,10 @@
     padding-right: 16px;
     margin: 0 auto;
     position: relative;
-  }
-  @include mobile {
     width: $mobile;
+  }
+  @include tablet {
+    width: 100%;
   }
 }
 .burger-menu {
