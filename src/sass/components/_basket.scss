@@ -1,13 +1,12 @@
-@import "../utils/breakpoints";
-@import "../utils/mixins";
-@import "../utils/variables";
+@import '../utils/breakpoints';
+@import '../utils/mixins';
+@import '../utils/variables';
 
 .basket-title {
-   white-space: normal;
+  white-space: normal;
   @include mobile {
     white-space: nowrap;
   }
-
 
   @include font(400, 32px, 120%, 0.03em);
   margin-bottom: 32px;
@@ -114,7 +113,6 @@
   margin-top: 24px;
   margin-bottom: 32px;
   @include mobile {
-
     width: 300px;
     height: 300px;
     background-color: $background-color;
@@ -275,7 +273,7 @@
   -webkit-appearance: none;
   appearance: none;
   background-color: #fff;
-  background-image: url("../images/icons/cheveron-outline-down.svg");
+  background-image: url('../images/icons/cheveron-outline-down.svg');
   background-repeat: no-repeat, repeat;
   background-position: right 0.7em top 50%, 0 0;
   background-size: 0.65em auto, 100%;
@@ -286,7 +284,7 @@
   color: $primary-text-color;
 }
 
-*[dir="rtl"] .select,
+*[dir='rtl'] .select,
 :root:lang(ar) .select,
 :root:lang(iw) .select {
   background-position: left 0.7em top 50%, 0 0;
@@ -304,6 +302,10 @@
   background-color: $accent-btn-color;
   border: 1px solid $accent-btn-color;
   margin-top: 60px;
+  &:hover {
+    border: 1px solid $hover-btn-color;
+    background-color: #81c5ff;
+  }
 }
 
 .basket-empty {
