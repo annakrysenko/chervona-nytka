@@ -1,7 +1,7 @@
 .page-up {
     display: none;
-    @include mobile {
 
+    @include mobile {
         all: unset;
         display: flex;
         justify-content: center;
@@ -12,16 +12,16 @@
         width: 40px;
         height: 40px;
         background-color: transparent;
-    
+
         cursor: pointer;
-    
+
         // transform:scale(1.1);
         opacity: 0;
         transition: opacity 300ms;
-    
+
         // background-color: rgba(0, 0, 0, 0.1);
         border-radius: 50%;
-    
+
         &__icon {
             transform: rotate(90deg);
             width: 20px;
@@ -31,4 +31,8 @@
             height: 30px;
         }
     }
+}
+
+.up-index {
+    z-index: 10;
 }

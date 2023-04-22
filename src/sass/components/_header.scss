@@ -9,12 +9,8 @@
   background: rgb(244, 244, 244);
 }
 .header-wrapper {
+  width: 100%;
 
-    width: 100%;
-
-  @include mobile {
-    width: $mobile;
-  }
   @include max-mobile {
     display: flex;
     justify-content: space-between;
@@ -25,6 +21,9 @@
     padding-right: 16px;
     margin: 0 auto;
     position: relative;
+    // width: $mobile;
+  }
+  @include mobile {
     width: $mobile;
   }
   @include tablet {
@@ -35,7 +34,7 @@
   @include max-mobile {
     width: 32px;
     height: 32px;
-    background-image: url('../images/icons/burger-menu.svg');
+    background-image: url("../images/icons/burger-menu.svg");
     background-size: contain;
     background-repeat: no-repeat;
   }
@@ -45,7 +44,7 @@
   @include max-mobile {
     width: 32px;
     height: 32px;
-    background-image: url('../images/icons/burger-menu-open.svg');
+    background-image: url("../images/icons/burger-menu-open.svg");
     background-size: contain;
     background-repeat: no-repeat;
   }
@@ -55,7 +54,7 @@
   display: flex;
   align-items: center;
 
-  background-image: url('../images/icons/Logo-1.svg');
+  background-image: url("../images/icons/Logo-1.svg");
   background-size: contain;
   background-repeat: no-repeat;
   @include max-mobile {
@@ -156,7 +155,7 @@
 }
 // ======= basket =======
 .header-btn-basket {
-  background-image: url('../images/icons/icon-basket-empty.svg');
+  background-image: url("../images/icons/icon-basket-empty.svg");
   background-size: contain;
   background-repeat: no-repeat;
   width: 32px;
@@ -171,7 +170,7 @@
 }
 
 .header-btn-basket-full {
-  background-image: url('../images/icons/icon-basket-full.svg');
+  background-image: url("../images/icons/icon-basket-full.svg");
   background-size: contain;
   background-repeat: no-repeat;
   width: 32px;
@@ -195,8 +194,7 @@
     left: 0;
     padding: 15px 36px 23px 16px;
     border-radius: 5px;
-    box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px,
-      rgba(0, 0, 0, 0.1) 0px 2px 4px 0px,
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px,
       rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
   }
   @include tablet {
