@@ -1,6 +1,7 @@
 @import "../utils/breakpoints";
 
 .reviews {
+    margin-left: -8px;
     position: relative;
     @include max-mobile {
         padding-top: 12px;
@@ -34,20 +35,25 @@
     margin: 0;
 }
 .swiper-backdrop {
-    border-radius: 10px;
-    margin: 0 auto;
-    width: 350px;
-    height: 250px;
-    padding: 24px 16px 56px 16px;
-    background-color: $background-card-color;
-
+    color: $primary-text-color;
+    font-family: $secondary-font-style;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    background-color: $background-card-color;
+    border-radius: 10px;
+    margin: 0 auto;
+    width: calc(100% - 30px);
+    height: 250px;
+    padding: 24px 16px 56px 16px;
+    @include mobile {
 
-    color: $primary-text-color;
-    font-family: $secondary-font-style;
-
+        border-radius: 10px;
+        margin: 0 auto;
+        width: 350px;
+        height: 250px;
+        padding: 24px 16px 56px 16px;
+    }
     @include font(400, 15px, 120%, 0.03em);
     @include tablet {
         margin-right: auto;

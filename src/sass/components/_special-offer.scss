@@ -58,13 +58,22 @@
 // }
 
 .special-offer__square {
-  position: absolute;
-  top: 24px;
-  left: 34px;
-  width: 308px;
-  height: 263px;
-  border: 4px solid $accent-btn-color;
+  width: 285px;
+  height: 265px;
   box-sizing: border-box;
+  border: 4px solid $accent-btn-color;
+  position: absolute;
+  top: 22px;
+  left: 18px;
+  @include mobile {
+    position: absolute;
+    top: 24px;
+    left: 34px;
+    width: 308px;
+    height: 263px;
+    border: 4px solid $accent-btn-color;
+    box-sizing: border-box;
+  }
 
   @include tablet {
     width: 354px;
@@ -81,12 +90,22 @@
 }
 
 .special-offer__background {
-  width: 343px;
   height: 226px;
-  background-color: rgba(255, 255, 255, 0.65);
-  margin-left: -22px;
+  background-color: #ffffffa6;
   margin-top: 15px;
-  padding: 32px 89px;
+  margin-left: 13px;
+  padding: 10px 46px;
+  width: 90%;
+  @include mobile {
+    width: 343px;
+    height: 226px;
+    background-color: rgba(255, 255, 255, 0.65);
+    margin-left: -22px;
+    // margin-top: 15px;
+    // display: block;
+    // margin: 0 auto;
+    padding: 32px 89px;
+  }
 
   @include tablet {
     width: 396px;
