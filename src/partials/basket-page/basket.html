@@ -34,11 +34,13 @@
         class="basket-form_input telephone "
         type="tel"
         name="tel"
-        pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+   pattern="[\+]\d{2}\s[\(]\d{3}[\)]\s\d{3}[\-]\d{2}[\-]\d{2}"
         placeholder="Номер телефону"
+         title='Введіть номер  в форматі +38(000)000-00-00'
+        
         required
       />
-
+      <div class="validation is-hidden"></div>
       <select name="postal" class="basket-form_input select">
         <option value disabled selected>
           Спосіб доставки
