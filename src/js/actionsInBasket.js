@@ -7,12 +7,6 @@ import { auditBasket } from './markupBasket';
 
 const LSData = getDataFromLockalStorageByKey(LS_KEY_ADD_TO) ?? [];
 const body = document.querySelector('body');
-<<<<<<< Updated upstream
-
-=======
-// const form = document.querySelector('form');
-// const submitBtn = document.querySelector('.basket-form_btn');
->>>>>>> Stashed changes
 body.addEventListener('click', handleAddValueBtnClick);
 body.addEventListener('click', handleReduceValueBtnClick);
 body.addEventListener('click', handleRemoveEl);
@@ -103,7 +97,14 @@ function handleReduceSpecialBtnClick(e) {
   const price = Number(priceItem.dataset.price);
   let valueOutput = orderArticleElem.querySelector('.js-value');
   let value = Number(valueOutput.textContent);
-  value = value <= 1 ? 1 : value === 5 ? 1 :value > 5 && value <= 20? value - 5: value - 30;
+  value =
+    value <= 1
+      ? 1
+      : value === 5
+      ? 1
+      : value > 5 && value <= 20
+      ? value - 5
+      : value - 30;
   valueOutput.textContent = value;
   if (value === 1) priceItem.textContent = value * price;
   if (value === 5) priceItem.textContent = 100;
@@ -121,7 +122,14 @@ function handleAddSpecialBtnClick(e) {
   const price = Number(priceItem.dataset.price);
   let valueOutput = orderArticleElem.querySelector('.js-value');
   let value = Number(valueOutput.textContent);
-  value = value < 1 ? (value = 1) : value === 1 ? (value += 4) : value >= 5 && value < 20? (value += 5): value = 50;
+  value =
+    value < 1
+      ? (value = 1)
+      : value === 1
+      ? (value += 4)
+      : value >= 5 && value < 20
+      ? (value += 5)
+      : (value = 50);
   valueOutput.textContent = value;
   if (value === 1) priceItem.textContent = value * price;
   if (value === 5) priceItem.textContent = 100;
