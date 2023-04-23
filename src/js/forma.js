@@ -28,13 +28,17 @@ telInput.addEventListener('change', handleValidation);
 
 function handleValidation(e) {
   const telep = e.target.value;
-  console.log(telep);
+  console.log(telep.length);
+  if (telep.length < 13) {
+    errorValid.classList.remove('is-hidden');
+  }
+  errorValid.classList.add('is-hidden');
 }
 
-const phoneMask = new IMask(telInput, {
-  mask: '+{38}(000)000-00-00',
-});
-phoneMask.updateValue(telInput.value);
+// const phoneMask = new IMask(telInput, {
+//   mask: '+{38}(000)000-00-00',
+// });
+// phoneMask.updateValue(telInput.value);
 const sendData = async data => {
   try {
     const response = await fetch(
