@@ -9,8 +9,7 @@ const modal = document.querySelector('.backdrop');
 const totalEl = document.querySelector('.basket-total-price');
 const formEl = document.querySelector('.basket-form');
 const closeBtn = document.querySelector('.modal-link-home');
-const telInput = document.querySelector('.telephone');
-const errorValid = document.querySelector('.validation');
+
 const orderData = {};
 const LSData = getDataFromLockalStorageByKey(LS_KEY_ADD_TO) || [];
 
@@ -24,21 +23,7 @@ const formattedDate = `${day}.${month}.${year}`;
 if (formEl) formEl.addEventListener('submit', handleSubmit);
 if (formEl) formEl.addEventListener('change', handleChangeForm);
 closeBtn.addEventListener('click', handleCloseModal);
-telInput.addEventListener('change', handleValidation);
 
-function handleValidation(e) {
-  const telep = e.target.value;
-  console.log(telep.length);
-  if (telep.length < 13) {
-    errorValid.classList.remove('is-hidden');
-  }
-  errorValid.classList.add('is-hidden');
-}
-
-// const phoneMask = new IMask(telInput, {
-//   mask: '+{38}(000)000-00-00',
-// });
-// phoneMask.updateValue(telInput.value);
 const sendData = async data => {
   try {
     const response = await fetch(
