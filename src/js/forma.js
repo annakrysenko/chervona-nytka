@@ -1,6 +1,5 @@
 import { data } from '../data';
 import { getDataFromLockalStorageByKey } from './localStorageService';
-import IMask from 'imask';
 
 const LS_KEY_ADD_TO = 'Add-to-basket';
 const LS_KEY = 'selectedvalue';
