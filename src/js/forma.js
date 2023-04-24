@@ -1,5 +1,7 @@
 import { data } from '../data';
 import { getDataFromLockalStorageByKey } from './localStorageService';
+import IMask from 'imask';
+
 const LS_KEY_ADD_TO = 'Add-to-basket';
 const LS_KEY = 'selectedvalue';
 
@@ -7,7 +9,7 @@ const modal = document.querySelector('.backdrop');
 const totalEl = document.querySelector('.basket-total-price');
 const formEl = document.querySelector('.basket-form');
 const closeBtn = document.querySelector('.modal-link-home');
-const telInput = document.querySelector('.telephone');
+
 const orderData = {};
 const LSData = getDataFromLockalStorageByKey(LS_KEY_ADD_TO) || [];
 
@@ -21,15 +23,6 @@ const formattedDate = `${day}.${month}.${year}`;
 if (formEl) formEl.addEventListener('submit', handleSubmit);
 if (formEl) formEl.addEventListener('change', handleChangeForm);
 closeBtn.addEventListener('click', handleCloseModal);
-telInput.addEventListener('change', handleValidation);
-
-function handleValidation(e) {
-  const telep = e.target.value;
-  if (telep.length < 13) {
-    alert('Введіть номер телефону в форматі +380671234567');
-  }
-  console.log(x);
-}
 
 const sendData = async data => {
   try {

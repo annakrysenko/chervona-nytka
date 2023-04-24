@@ -1,6 +1,6 @@
-@import '../utils/breakpoints';
-@import '../utils/mixins';
-@import '../utils/variables';
+@import "../utils/breakpoints";
+@import "../utils/mixins";
+@import "../utils/variables";
 
 .basket-title {
   white-space: normal;
@@ -14,12 +14,15 @@
 
   @include tablet {
     @include font(400, 42px, 120%, 0.03em);
+    padding-left: 15px;
+
     margin-bottom: 48px;
     padding-top: 48px;
   }
   @include desktop {
     padding-top: 52px;
-    margin-bottom: 56px;
+    margin-bottom: 26px;
+    // padding-left: 15px;
   }
 }
 .basket-list {
@@ -56,7 +59,7 @@
   flex-wrap: wrap;
   @include tablet {
     width: 300px;
-    margin-left: 30px;
+    // margin-left: 30px;
   }
 }
 .basket-subtitle {
@@ -86,12 +89,12 @@
 }
 
 .basket {
-  padding: 10px;
+  // padding: 10px;
   @include mobile {
     // padding: 0 16px;
   }
   @include tablet {
-    margin-left: 60px;
+    // margin-left: 60px;
   }
 }
 .order-value {
@@ -100,8 +103,12 @@
 .basket-item-info {
   @include tablet {
     width: 75%;
+    padding-left: 50px;
   }
-  margin-right: auto;
+  @include desktop {
+    padding-left: 50px;
+  }
+  // margin-right: auto;
 }
 
 .basket-item_thumb {
@@ -273,7 +280,7 @@
   -webkit-appearance: none;
   appearance: none;
   background-color: #fff;
-  background-image: url('../images/icons/cheveron-outline-down.svg');
+  background-image: url("../images/icons/cheveron-outline-down.svg");
   background-repeat: no-repeat, repeat;
   background-position: right 0.7em top 50%, 0 0;
   background-size: 0.65em auto, 100%;
@@ -284,7 +291,7 @@
   color: $primary-text-color;
 }
 
-*[dir='rtl'] .select,
+*[dir="rtl"] .select,
 :root:lang(ar) .select,
 :root:lang(iw) .select {
   background-position: left 0.7em top 50%, 0 0;
