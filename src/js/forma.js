@@ -142,7 +142,7 @@ function initForm() {
 
     const phoneNumber = formInput.value;
     const parsedPhoneNumber = parsePhoneNumberFromString(phoneNumber, 'UA');
-    const isValid = parsedPhoneNumber && parsedPhoneNumber.isValid() || phoneNumber !== '';
+    const isValid = parsedPhoneNumber && parsedPhoneNumber.isValid();
     console.log(isValid);
     if (!isValid) {
       submBtn.disabled = true;
