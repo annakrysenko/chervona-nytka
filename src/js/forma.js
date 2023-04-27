@@ -1,6 +1,6 @@
 import { data } from '../data';
 import { getDataFromLockalStorageByKey } from './localStorageService';
-import { parsePhoneNumberFromString } from 'libphonenumber-js';
+import { parsePhoneNumberFromString, parsePhoneNumber } from 'libphonenumber-js';
 import Toastify from 'toastify-js';
 import "toastify-js/src/toastify.css";
 
@@ -102,9 +102,9 @@ function handleChangeForm(e) {
 if (e.target.name === 'tel') {
   e.target.classList.remove('error-number');
   const phoneNumber = e.target.value;
-
   const parsedPhoneNumber = parsePhoneNumberFromString(phoneNumber, 'UA');
-  const isValid = parsedPhoneNumber && parsedPhoneNumber.isValid();
+  const country = parsePhoneNumber(phoneNumber, 'UA').country;
+  const isValid = parsedPhoneNumber && parsedPhoneNumber.isValid() && country === 'UA';
   const formattedNumber = parsedPhoneNumber && parsedPhoneNumber.formatInternational();
   if (isValid) {
     e.target.value = formattedNumber;
@@ -142,7 +142,8 @@ function initForm() {
 
     const phoneNumber = formInput.value;
     const parsedPhoneNumber = parsePhoneNumberFromString(phoneNumber, 'UA');
-    const isValid = parsedPhoneNumber && parsedPhoneNumber.isValid();
+    const country = parsePhoneNumber(phoneNumber, 'UA').country;
+    const isValid = parsedPhoneNumber && parsedPhoneNumber.isValid() && country === 'UA';
     console.log(isValid);
     if (!isValid) {
       submBtn.disabled = true;
@@ -159,7 +160,8 @@ function handleInputForm(e) {
   }
   const phoneNumber = e.target.value;
   const parsedPhoneNumber = parsePhoneNumberFromString(phoneNumber, 'UA');
-  const isValid = parsedPhoneNumber && parsedPhoneNumber.isValid();
+  const country = parsePhoneNumber(phoneNumber, 'UA').country;
+  const isValid = parsedPhoneNumber && parsedPhoneNumber.isValid() && country === 'UA';
   submBtn.disabled = isValid ? false: true;
 
 }
